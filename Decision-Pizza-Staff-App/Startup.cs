@@ -26,8 +26,8 @@ namespace Decision_Pizza_Staff_App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(new DatabaseConfig { DatabaseConnectionConfiguration = Configuration.GetConnectionString("DefaultConnection") });
-    
-            services.AddRazorPages();
+            services.AddControllersWithViews();
+
             services.AddSingleton<IDatabaseBootstrap, DatabaseBootstrap>();
             services.AddSingleton<IWaiterRepository, WaiterRepository>();
             services.AddSingleton<IWaiterRepository, WaiterRepository>();
@@ -42,11 +42,10 @@ namespace Decision_Pizza_Staff_App
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -56,11 +55,12 @@ namespace Decision_Pizza_Staff_App
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
             serviceProvider.GetService<IDatabaseBootstrap>().Setup();
-
         }
     }
 }

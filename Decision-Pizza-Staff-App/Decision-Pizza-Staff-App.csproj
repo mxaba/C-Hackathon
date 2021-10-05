@@ -5,7 +5,7 @@
     <RootNamespace>Decision_Pizza_Staff_App</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
+   <ItemGroup>
     <PackageReference Include="Bogus" Version="33.1.1" />
     <PackageReference Include="Dapper" Version="2.0.90" />
     <PackageReference Include="Faker.Net" Version="1.5.138" />
