@@ -143,15 +143,20 @@ body {
 	right: 50px;	
 	border-radius: 60px;
 }
+.nameCam{
+  width: 320px;
+	padding: 30px;
+  padding-top: 100px;
+	color: #3397C1;
+}
 
 .login {
 	width: 320px;
 	padding: 30px;
-	padding-top: 156px;
 }
 
 .login__field {
-	padding: 20px 0px;	
+	padding: 20px 0;	
 	position: relative;	
 }
 
