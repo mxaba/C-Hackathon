@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace SQLLite_Database.Model
+namespace Decision_Pizza_Staff_App.Models
 {
     public interface IWaiterRepository
     {

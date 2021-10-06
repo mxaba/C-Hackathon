@@ -33,5 +33,12 @@ namespace Decision_Pizza_Staff_App.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //[HttpPost]
+        //public IActionResult Login(string employeeNumber)
+        //{
+        //    var results = await 
+        //    return View();
+        //}
     }
 }

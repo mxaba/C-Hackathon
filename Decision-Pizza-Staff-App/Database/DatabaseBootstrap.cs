@@ -1,10 +1,10 @@
 using Dapper;
 using Microsoft.Data.Sqlite;
-using SQLLite_Database.Model;
+using Decision_Pizza_Staff_App.Models;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SQLLite_Database.Database
+namespace Decision_Pizza_Staff_App.Database
 {
 
     public class DatabaseBootstrap : IDatabaseBootstrap
@@ -25,7 +25,7 @@ namespace SQLLite_Database.Database
             var table = connection.Query<string>("SELECT name FROM sqlite_master WHERE type='table' AND name = 'WaiterManager';");
             var tableName = table.FirstOrDefault();
             if (!string.IsNullOrEmpty(tableName) && tableName == "WaiterManager")
-                // connection.Execute("DROP TABLE WaiterManager");
+                //connection.Execute("DROP TABLE WaiterManager");
                 return;
 
             connection.Execute("Create Table WaiterManager (" +

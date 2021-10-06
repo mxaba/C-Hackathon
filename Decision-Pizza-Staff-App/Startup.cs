@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SQLLite_Database.Database;
-using SQLLite_Database.Model;
+using Decision_Pizza_Staff_App.Database;
+using Decision_Pizza_Staff_App.Models;
 
 namespace Decision_Pizza_Staff_App
 {
@@ -30,7 +30,7 @@ namespace Decision_Pizza_Staff_App
 
             services.AddSingleton<IDatabaseBootstrap, DatabaseBootstrap>();
             services.AddSingleton<IWaiterRepository, WaiterRepository>();
-            services.AddSingleton<IWaiterRepository, WaiterRepository>();
+            services.AddSingleton<ILogin, Login>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

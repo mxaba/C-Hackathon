@@ -1,9 +1,9 @@
 using Dapper;
 using Microsoft.Data.Sqlite;
-using SQLLite_Database.Database;
+using Decision_Pizza_Staff_App.Database;
 using System.Threading.Tasks;
 
-namespace SQLLite_Database.Model
+namespace Decision_Pizza_Staff_App.Models
 {
 
     public class WaiterRepository : IWaiterRepository
@@ -28,7 +28,10 @@ namespace SQLLite_Database.Model
             using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
 
             await connection.ExecuteAsync("INSERT INTO WaiterManager (EmployId, FullNames, Status)" +
-                "VALUES (@EmployId, @FullNames, @Status);", new {EmployId="John1234CodeX", FullNames="John Cena WWE Raw", Status="manager"});
+                "VALUES (@EmployId, @FullNames, @Status);", new {EmployId="John1234CodeX", FullNames="John Cena WWE Raw", Status="waiter"});
+
+            await connection.ExecuteAsync("INSERT INTO WaiterManager (EmployId, FullNames, Status)" +
+                "VALUES (@EmployId, @FullNames, @Status);", new { EmployId = "VinceMacMacMahonCodeX", FullNames = "Vince MacMacMahon", Status = "manager" });
         }
     }
 }
