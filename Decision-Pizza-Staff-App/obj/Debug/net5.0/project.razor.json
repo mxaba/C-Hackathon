@@ -15649,6 +15649,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Home/WaitersPage.cshtml",
+      "TargetPath": "Views\\Home\\WaitersPage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
