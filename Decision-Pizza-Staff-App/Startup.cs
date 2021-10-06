@@ -31,6 +31,7 @@ namespace Decision_Pizza_Staff_App
             services.AddSingleton<IDatabaseBootstrap, DatabaseBootstrap>();
             services.AddSingleton<IWaiterRepository, WaiterRepository>();
             services.AddSingleton<ILogin, Login>();
+            services.AddSingleton<IMessages, Messages>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
