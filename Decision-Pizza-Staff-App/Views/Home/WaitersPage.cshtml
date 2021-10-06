@@ -67,7 +67,7 @@
              <br>
             <label>Select Day:</label>
             <br>
-            <select name="select-day" id="days" class="form-control" >
+            <select asp-for="Time" name="select-day" id="days"  class="form-control" >
                 <option value="Select">Select</option>
                 <option value="Monday">Monday</option>
                 <option value="Tuesday">Tuesday</option>
@@ -78,7 +78,7 @@
             <br>
             <label>Select Time:</label>
             <br>
-            <select name="select-time" id="times" class="form-control">
+            <select asp-for="Day" name="select-time" id="times" class="form-control">
                 <option value="Select">Select</option>
                 <option value="shift1">09:00 - 12:00</option>
                 <option value="shift2">12:00 - 16:00</option>

@@ -23,24 +23,31 @@ namespace Decision_Pizza_Staff_App.Controllers
         [HttpPost]
         public IActionResult Login(string EmployId)
         {
+            return RedirectLoctic(EmployId);
+        }
+
+        public IActionResult RedirectLoctic(string EmployId)
+        {
             var results = login.GetWaiterManager(EmployId);
             var ControllerDirect = RedirectToAction("Index", "Home");
             if (results.Count() == 0)
             {
-                TempData["error"] = "I don't have an employee number";
+                new WaiterManager(){Message = "I don't have an employee number"};
                 ControllerDirect = RedirectToAction("Index", "Home");
-            } else
+            }
+            else
             {
-                foreach(var wm in results)
+                foreach (var wm in results)
                 {
-                    if(wm.Status == "manager")
+                    if (wm.Status == "manager")
                     {
                         TempData["manager"] = EmployId;
                         ControllerDirect = RedirectToAction("Manager", "Home");
                     }
                     if (wm.Status == "waiter")
                     {
-                        ControllerDirect = RedirectToAction("WaitersPage", "Home", new WaiterManager(){
+                        ControllerDirect = RedirectToAction("WaitersPage", "Home", new WaiterManager()
+                        {
                             EmployId = EmployId,
                             FullNames = wm.FullNames,
                             Status = wm.Status,

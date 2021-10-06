@@ -25,13 +25,22 @@ namespace Decision_Pizza_Staff_App.Database
             var table = connection.Query<string>("SELECT name FROM sqlite_master WHERE type='table' AND name = 'WaiterManager';");
             var tableName = table.FirstOrDefault();
             if (!string.IsNullOrEmpty(tableName) && tableName == "WaiterManager")
-                //connection.Execute("DROP TABLE WaiterManager");
+                // connection.Execute("DROP TABLE WaiterManager");
                 return;
 
             connection.Execute("Create Table WaiterManager (" +
                 "EmployId VARCHAR(100) NOT NULL," +
                 "FullNames VARCHAR(100) NOT NULL," +
                 "Status VARCHAR(100) NOT NULL);"
+            );
+
+            connection.Execute("Create Table TimeSlots (" +
+                "TimeSlotsId VARCHAR(100) NOT NULL," +
+                "EmployId VARCHAR(100) NOT NULL," +
+                "FullNames VARCHAR(100) NOT NULL," +
+                "Status VARCHAR(100) NOT NULL," +
+                "Time VARCHAR(100) NOT NULL," +
+                "Day VARCHAR(100) NOT NULL);"
             );
 
             connection.Execute("CREATE UNIQUE INDEX IWaiterManager ON WaiterManager (EmployId);");
