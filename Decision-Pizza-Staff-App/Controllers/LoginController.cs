@@ -35,20 +35,16 @@ namespace Decision_Pizza_Staff_App.Controllers
                 {
                     if(wm.Status == "manager")
                     {
-                        TempData["error"] = "Hey i am a mananger";
+                        TempData["manager"] = EmployId;
                         ControllerDirect = RedirectToAction("Manager", "Home");
                     }
                     if (wm.Status == "waiter")
                     {
-                        TempData["error"] = "Hey i am a Waiter";
-
+                        TempData["waiter"] = EmployId;
+                        ControllerDirect = RedirectToAction("WaitersPage", "Home");
                     }
                 }
             }
-
-            Console.WriteLine(EmployId);
-
-            Console.WriteLine(results.Count());
             return ControllerDirect;
         }
     }
