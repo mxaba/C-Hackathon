@@ -1,0 +1,118 @@
+@{
+    ViewData["Title"] = "Waiters Page";
+}
+<h1 class="display-4"> Welcome John Cena</h1>
+<br>
+<table class="table table-primary table-hover table-bordered border-primary ">
+    <tr>
+    <th scope="col">Time</th>
+    <th scope="col">Monday</th>
+    <th scope="col">Tuesday</th>
+    <th scope="col">Wednesday</th>
+    <th scope="col">Thursday</th>
+    <th scope="col">Friday</th>
+    </tr>
+    <tr>
+        <td>09:00 - 12:00</td>
+        <td class="table-success text-white"></td>   
+        <td class="table-success text-white"></td>   
+        <td class="table-danger text-white"></td>   
+        <td class="table-success text-white"></td>   
+        <td class="table-success text-white"></td>   
+    </tr>
+    <tr>
+        <td>12:00 - 16:00</td>
+        <td class="table-success text-white"></td>   
+        <td class="table-danger text-white"></td>   
+        <td class="table-success text-white"></td>   
+        <td class="table-success text-white"></td>   
+        <td class="table-success text-white"></td>   
+
+    </tr>
+    <tr>
+        <td>16:00 - 21:00</td>
+        <td class="table-success text-white"></td>   
+        <td class="table-danger text-white"></td>   
+        <td class="table-success text-white"></td>   
+        <td class="table-success text-white"></td>   
+        <td class="table-success text-white"></td>   
+    </tr>
+</table>
+<br>
+<h2 class="display-6">Your Schedule</h2>
+<div class="text-center">
+    <table class="table table-light table-borderless">
+        <tr>
+            <th> Monday</th>
+            <th>Wednesday</th>
+            <th>Friday</th>
+        </tr>
+        <tr>
+            <td>09:00 - 12:00</td>
+            <td>12:00 - 16:00</td>
+            <td>16:00 - 21:00</td>
+        </tr>
+    </table>
+</div>
+<br>
+<div class="row justify-content-between gap-3">
+    <div class="col gy-5 bg-light border-right border-info">
+        <div class="text-center">
+            <br>
+            <h2 class="display-6">Request Shift</h2>
+        </div>
+         <form>
+             <br>
+            <label>Select Day:</label>
+            <br>
+            <select name="select-day" id="days" class="form-control" >
+                <option value="Select">Select</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+            </select>
+            <br>
+            <label>Select Time:</label>
+            <br>
+            <select name="select-time" id="times" class="form-control">
+                <option value="Select">Select</option>
+                <option value="shift1">09:00 - 12:00</option>
+                <option value="shift2">12:00 - 16:00</option>
+                <option value="shift3">16:00 - 21:00</option>
+            </select>
+            <br>
+            <button class="btn btn-primary" type="submit">Request</button>
+            <br>
+            <br>
+         </form>
+    </div>
+    <div class="col gy-5 bg-light border-left border-info">
+        <div class="text-center">
+            <br>
+            <h2 class="display-6">Requests Status</h2>
+            <br>
+        </div>
+        @* <div class="row">
+            <div class="col-8 border-right border-primary">
+                <span>Tuesday, 12:00 - 16:00</span>
+            </div>
+            <div class="col-3 border-left border-primary">
+                <span>Pending</span>
+            </div>
+        </div> *@
+        <div class="text-center">
+            <table>
+                <tr class="table-default">
+                    <td colspan="2" class="border-right border-top border-bottom border-primary p-2">Tuesday, 12:00 - 16:00</td>
+                    <td class="border-bottom border-top border-primary p-2" >Pending</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<br>
+
+
+
