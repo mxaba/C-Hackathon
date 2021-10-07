@@ -103,7 +103,7 @@
             <table>
                 @foreach (var timeSlot in Model.TimeslotsResults){
                     <tr class="table-default">
-                        <td colspan="2" class="border-right border-top border-bottom border-primary p-2">@Html.DisplayFor(Model => timeSlot.Day), @timeSlot.Time</td>
+                        <td colspan="2" class="border-right border-top border-bottom border-primary p-2">@timeSlot.Day, @timeSlot.Time</td>
                         <td class="border-bottom border-top border-primary p-2" >@timeSlot.Status</td>
                     </tr>
                 }

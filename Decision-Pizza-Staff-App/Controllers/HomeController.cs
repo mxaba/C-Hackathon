@@ -32,7 +32,22 @@ namespace Decision_Pizza_Staff_App.Controllers
 
         public IActionResult WaitersPage(WaiterManager waiterManager)
         {
-            // var modelToBePassed = 
+            var getWaiterTime = login.GetTimeSlots(waiterManager).ToList();
+            var slotsAdd = new List<WaiterManager>();
+            foreach (var item in getWaiterTime)
+            {
+                slotsAdd.Add(new WaiterManager { 
+                    TimeSlotsId=item.TimeSlotsId,
+                    EmployId=item.EmployId,
+                    FullNames=item.FullNames,
+                    Status=item.Status,
+                    Time=item.Time,
+                    Day=item.Day
+                });
+            }
+
+            waiterManager.TimeslotsResults = slotsAdd;
+
             return View(waiterManager);
         }
 
