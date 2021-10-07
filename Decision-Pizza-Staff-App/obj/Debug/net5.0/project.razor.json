@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Decision-Pizza-Staff-App.csproj",
+  "FilePath": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Decision-Pizza-Staff-App.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,68 +15619,41 @@
   "RootNamespace": "Decision_Pizza_Staff_App",
   "Documents": [
     {
-<<<<<<< HEAD
       "FilePath": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Home/WaitersPage.cshtml",
       "TargetPath": "Views\\Home\\WaitersPage.cshtml",
       "FileKind": "mvc"
     },
     {
       "FilePath": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Shared/Error.cshtml",
-=======
-      "FilePath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Home/Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Shared/Error.cshtml",
->>>>>>> cb2558966d184f205bb8493d1a9bc65da1d20109
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-<<<<<<< HEAD
       "FilePath": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Home/Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
       "FilePath": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/_ViewImports.cshtml",
-=======
-      "FilePath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/_ViewImports.cshtml",
->>>>>>> cb2558966d184f205bb8493d1a9bc65da1d20109
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-<<<<<<< HEAD
       "FilePath": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Shared/_Layout.cshtml",
-=======
-      "FilePath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Shared/_Layout.cshtml",
->>>>>>> cb2558966d184f205bb8493d1a9bc65da1d20109
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-<<<<<<< HEAD
       "FilePath": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
       "FilePath": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Shared/_ValidationScriptsPartial.cshtml",
-=======
-      "FilePath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Home/Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Shared/_ValidationScriptsPartial.cshtml",
->>>>>>> cb2558966d184f205bb8493d1a9bc65da1d20109
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-<<<<<<< HEAD
       "FilePath": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Home/Manager.cshtml",
       "TargetPath": "Views\\Home\\Manager.cshtml",
       "FileKind": "mvc"
@@ -15688,20 +15661,6 @@
     {
       "FilePath": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
-=======
-      "FilePath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Home/WaitersPage.cshtml",
-      "TargetPath": "Views\\Home\\WaitersPage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Home/Manager.cshtml",
-      "TargetPath": "Views\\Home\\Manager.cshtml",
->>>>>>> cb2558966d184f205bb8493d1a9bc65da1d20109
       "FileKind": "mvc"
     }
   ],

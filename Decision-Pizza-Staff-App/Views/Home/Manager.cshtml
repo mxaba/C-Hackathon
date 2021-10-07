@@ -1,6 +1,14 @@
+@model WaiterManager
+
+@{
+    ViewData["Title"] = "Manager's Page";
+}
+
 <div id="Manager" class="container-lg" " >
  <Div class >
        <h1 class="text-center">Decision Pizza</h1>
+      <h1 class="display-4"> Welcome @Html.DisplayFor(model => model.FullNames)</h1>
+       
     </Div>
 </div>
 <br>
@@ -63,20 +71,26 @@
        <th>Name</th>
        <th>Day</th>
        <th>Time Slot</th>
-       <th>Request Status</th>
+       <th>Options</th>
      </tr>
-     <tr>
-       <td>John</td>
-       <td>Friday</td>
-       <td>09:00 - 12:00</td>
-    
-
+     @foreach (var timeSlot in Model.TimeslotsResults){
+       <tr>
+        <td>@timeSlot.FullNames </td>
+        <td>@timeSlot.Day</td>
+        <td>@timeSlot.Time</td>
        <td>
-         <button type="button" class="btn btn-outline-danger">Reject</button>
-         <button type="button" class="btn btn-outline-success">Approve</button>
+         <form action="" method="post">
+           <button type="button" class="btn btn-outline-danger">Reject</button>
+         </form>
+
+         <form action="" method="post">
+           <button type="button" class="btn btn-outline-success">Approve</button>
+         </form>
 
          </td>
        </tr>
+      }
+     
     
       </table>
     </div>

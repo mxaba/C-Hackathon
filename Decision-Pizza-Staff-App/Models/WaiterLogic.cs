@@ -36,11 +36,19 @@ namespace Decision_Pizza_Staff_App.Models
             return results;
         }
 
-        public IEnumerable<WaiterManager> GetTimeSlots(WaiterManager waiter)
+        public IEnumerable<WaiterManager> GetTimeSlotsById(WaiterManager waiter)
         {
             using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
             //return (IEnumerable<WaiterManager>)
             var results = connection.Query<WaiterManager>("SELECT * FROM TimeSlots WHERE (EmployId=@EmployId);", waiter);
+            return results;
+        }
+
+        public IEnumerable<WaiterManager> GetTimeSlots()
+        {
+            using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
+            //return (IEnumerable<WaiterManager>)
+            var results = connection.Query<WaiterManager>("SELECT * FROM TimeSlots;");
             return results;
         }
 

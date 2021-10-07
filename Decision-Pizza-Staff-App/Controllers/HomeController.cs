@@ -25,14 +25,30 @@ namespace Decision_Pizza_Staff_App.Controllers
             return View();
         }
 
-        public IActionResult Manager()
+        public IActionResult Manager(WaiterManager waiterManager)
         {
-            return View();
+            var getWaiterTime = login.GetTimeSlots().ToList();
+            var slotsAdd = new List<WaiterManager>();
+            foreach (var item in getWaiterTime)
+            {
+                Console.WriteLine(item.FullNames);
+                slotsAdd.Add(new WaiterManager { 
+                    TimeSlotsId=item.TimeSlotsId,
+                    EmployId=item.EmployId,
+                    FullNames=item.FullNames,
+                    Status=item.Status,
+                    Time=item.Time,
+                    Day=item.Day
+                });
+            }
+
+            waiterManager.TimeslotsResults = slotsAdd;
+            return View(waiterManager);
         }
 
         public IActionResult WaitersPage(WaiterManager waiterManager)
         {
-            var getWaiterTime = login.GetTimeSlots(waiterManager).ToList();
+            var getWaiterTime = login.GetTimeSlotsById(waiterManager).ToList();
             var slotsAdd = new List<WaiterManager>();
             foreach (var item in getWaiterTime)
             {

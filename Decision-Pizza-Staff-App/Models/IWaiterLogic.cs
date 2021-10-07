@@ -7,6 +7,7 @@ namespace Decision_Pizza_Staff_App.Models
     {
         IEnumerable<WaiterManager> GetWaiterManager(string EmployId);
         IEnumerable<WaiterManager> InsertTimeSlots(WaiterManager waiter);
-        IEnumerable<WaiterManager> GetTimeSlots(WaiterManager waiter);
+        IEnumerable<WaiterManager> GetTimeSlotsById(WaiterManager waiter);
+        IEnumerable<WaiterManager> GetTimeSlots();
     }
 }

@@ -29,7 +29,7 @@ namespace Decision_Pizza_Staff_App.Controllers
         [HttpPost]
         public IActionResult RequestShift(WaiterManager waiterManager)
         {
-            var getWaiterTime = login.GetTimeSlots(waiterManager);
+            var getWaiterTime = login.GetTimeSlotsById(waiterManager);
             Console.WriteLine(getWaiterTime.Count());
             var ControllerDirect = RedirectToAction("WaitersPage", "Home");
 
