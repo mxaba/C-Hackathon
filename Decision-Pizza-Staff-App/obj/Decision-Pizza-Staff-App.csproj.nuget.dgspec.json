@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Decision-Pizza-Staff-App.csproj": {}
+    "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Decision-Pizza-Staff-App.csproj": {}
   },
   "projects": {
-    "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Decision-Pizza-Staff-App.csproj": {
+    "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Decision-Pizza-Staff-App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Decision-Pizza-Staff-App.csproj",
+        "projectUniqueName": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Decision-Pizza-Staff-App.csproj",
         "projectName": "Decision-Pizza-Staff-App",
-        "projectPath": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Decision-Pizza-Staff-App.csproj",
-        "packagesPath": "/Users/mxaba/.nuget/packages/",
-        "outputPath": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/obj/",
+        "projectPath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Decision-Pizza-Staff-App.csproj",
+        "packagesPath": "/Users/miguelleroux/.nuget/packages/",
+        "outputPath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/mxaba/.nuget/NuGet/NuGet.Config"
+          "/Users/miguelleroux/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
