@@ -15619,6 +15619,11 @@
   "RootNamespace": "Decision_Pizza_Staff_App",
   "Documents": [
     {
+      "FilePath": "/home/josiah/Desktop/MVC Hackerton/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Home/WaitersPage.cshtml",
+      "TargetPath": "Views\\Home\\WaitersPage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/josiah/Desktop/MVC Hackerton/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"

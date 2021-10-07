@@ -1,10 +1,10 @@
 using Dapper;
 using Microsoft.Data.Sqlite;
-using SQLLite_Database.Model;
+using Decision_Pizza_Staff_App.Models;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SQLLite_Database.Database
+namespace Decision_Pizza_Staff_App.Database
 {
 
     public class DatabaseBootstrap : IDatabaseBootstrap
@@ -32,6 +32,15 @@ namespace SQLLite_Database.Database
                 "EmployId VARCHAR(100) NOT NULL," +
                 "FullNames VARCHAR(100) NOT NULL," +
                 "Status VARCHAR(100) NOT NULL);"
+            );
+
+            connection.Execute("Create Table TimeSlots (" +
+                "TimeSlotsId VARCHAR(100) NOT NULL," +
+                "EmployId VARCHAR(100) NOT NULL," +
+                "FullNames VARCHAR(100) NOT NULL," +
+                "Status VARCHAR(100) NOT NULL," +
+                "Time VARCHAR(100) NOT NULL," +
+                "Day VARCHAR(100) NOT NULL);"
             );
 
             connection.Execute("CREATE UNIQUE INDEX IWaiterManager ON WaiterManager (EmployId);");

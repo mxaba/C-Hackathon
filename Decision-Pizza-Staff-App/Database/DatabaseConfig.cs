@@ -1,4 +1,4 @@
-namespace SQLLite_Database.Database
+namespace Decision_Pizza_Staff_App.Database
 {
     public class DatabaseConfig
     {

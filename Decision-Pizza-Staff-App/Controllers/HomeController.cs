@@ -23,6 +23,16 @@ namespace Decision_Pizza_Staff_App.Controllers
             return View();
         }
 
+        public IActionResult WaitersPage(WaiterManager waiterManager)
+        {
+            return View(waiterManager);
+        }
+
+        public IActionResult TimeSlots(WaiterManager waiterManager)
+        {
+            return View(waiterManager);
+        }
+
         public IActionResult Privacy()
         {
             return View();
