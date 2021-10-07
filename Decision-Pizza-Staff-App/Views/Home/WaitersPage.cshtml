@@ -5,41 +5,43 @@
 }
 <h1 class="display-4"> Welcome @Html.DisplayFor(model => model.FullNames)</h1>
 <br>
-<table class="table table-primary table-hover table-bordered border-primary">
-    <tr>
-    <th scope="col">Time</th>
-    <th scope="col">Monday</th>
-    <th scope="col">Tuesday</th>
-    <th scope="col">Wednesday</th>
-    <th scope="col">Thursday</th>
-    <th scope="col">Friday</th>
-    </tr>
-    <tr>
-        <td>09:00 - 12:00</td>
-        <td class="table-success text-white"></td>   
-        <td class="table-success text-white"></td>   
-        <td class="table-danger text-white"></td>   
-        <td class="table-success text-white"></td>   
-        <td class="table-success text-white"></td>   
-    </tr>
-    <tr>
-        <td>12:00 - 16:00</td>
-        <td class="table-success text-white"></td>   
-        <td class="table-danger text-white"></td>   
-        <td class="table-success text-white"></td>   
-        <td class="table-success text-white"></td>   
-        <td class="table-success text-white"></td>   
+<div class="text-center">
+    <table class="table table-primary table-hover table-bordered border-primary">
+        <tr>
+        <th scope="col">Time</th>
+        <th scope="col">Monday</th>
+        <th scope="col">Tuesday</th>
+        <th scope="col">Wednesday</th>
+        <th scope="col">Thursday</th>
+        <th scope="col">Friday</th>
+        </tr>
+        <tr>
+            <td>09:00 - 12:00</td>
+            <td class="table-success text-white"></td>   
+            <td class="table-success text-white"></td>   
+            <td class="table-danger text-white"></td>   
+            <td class="table-success text-white"></td>   
+            <td class="table-success text-white"></td>   
+        </tr>
+        <tr>
+            <td>12:00 - 16:00</td>
+            <td class="table-success text-white"></td>   
+            <td class="table-danger text-white"></td>   
+            <td class="table-success text-white"></td>   
+            <td class="table-success text-white"></td>   
+            <td class="table-success text-white"></td>   
 
-    </tr>
-    <tr>
-        <td>16:00 - 21:00</td>
-        <td class="table-success text-white"></td>   
-        <td class="table-danger text-white"></td>   
-        <td class="table-success text-white"></td>   
-        <td class="table-success text-white"></td>   
-        <td class="table-success text-white"></td>   
-    </tr>
-</table>
+        </tr>
+        <tr>
+            <td>16:00 - 21:00</td>
+            <td class="table-success text-white"></td>   
+            <td class="table-danger text-white"></td>   
+            <td class="table-success text-white"></td>   
+            <td class="table-success text-white"></td>   
+            <td class="table-success text-white"></td>   
+        </tr>
+    </table>
+</div>
 <br>
 <h2 class="display-6">Your Schedule</h2>
 <div class="text-center">
@@ -101,13 +103,13 @@
         </div>
         <div class="text-center">
             <table>
-                @foreach (var timeSlot in Model.TimeslotsResults){
+                @foreach (var timeSlot in Model.TimeslotsResults)
+                {
                     <tr class="table-default">
                         <td colspan="2" class="border-right border-top border-bottom border-primary p-2">@timeSlot.Day, @timeSlot.Time</td>
                         <td class="border-bottom border-top border-primary p-2" >@timeSlot.Status</td>
                     </tr>
-                }
-                    
+                }   
             </table>
         </div>
     </div>
