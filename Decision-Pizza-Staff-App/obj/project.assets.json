@@ -1564,19 +1564,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/miguelleroux/.nuget/packages/": {}
+    "/home/josiah/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Decision-Pizza-Staff-App.csproj",
+      "projectUniqueName": "/home/josiah/Desktop/MVC Hackerton/CSharp-Hackathon/Decision-Pizza-Staff-App/Decision-Pizza-Staff-App.csproj",
       "projectName": "Decision-Pizza-Staff-App",
-      "projectPath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Decision-Pizza-Staff-App.csproj",
-      "packagesPath": "/Users/miguelleroux/.nuget/packages/",
-      "outputPath": "/Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/obj/",
+      "projectPath": "/home/josiah/Desktop/MVC Hackerton/CSharp-Hackathon/Decision-Pizza-Staff-App/Decision-Pizza-Staff-App.csproj",
+      "packagesPath": "/home/josiah/.nuget/packages/",
+      "outputPath": "/home/josiah/Desktop/MVC Hackerton/CSharp-Hackathon/Decision-Pizza-Staff-App/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/miguelleroux/.nuget/NuGet/NuGet.Config"
+        "/home/josiah/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -1649,7 +1649,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
       }
     }
   }

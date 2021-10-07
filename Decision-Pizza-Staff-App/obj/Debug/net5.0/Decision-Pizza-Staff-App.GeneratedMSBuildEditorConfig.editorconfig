@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = Decision_Pizza_Staff_App
-build_property.ProjectDir = /Users/miguelleroux/Desktop/Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/
+build_property.ProjectDir = /home/josiah/Desktop/MVC Hackerton/CSharp-Hackathon/Decision-Pizza-Staff-App/
