@@ -28,7 +28,7 @@ namespace Decision_Pizza_Staff_App.Models
             using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
 
             await connection.ExecuteAsync("INSERT INTO WaiterManager (EmployId, FullNames, Status)" +
-                "VALUES (@EmployId, @FullNames, @Status);", new {EmployId="John1234CodeX", FullNames="John Cena WWE Raw", Status="waiter"});
+                "VALUES (@EmployId, @FullNames, @Status);", new {EmployId="John1234CodeX", FullNames="John Cena", Status="waiter"});
 
             await connection.ExecuteAsync("INSERT INTO WaiterManager (EmployId, FullNames, Status)" +
                 "VALUES (@EmployId, @FullNames, @Status);", new { EmployId = "VinceMacMacMahonCodeX", FullNames = "Vince MacMacMahon", Status = "manager" });

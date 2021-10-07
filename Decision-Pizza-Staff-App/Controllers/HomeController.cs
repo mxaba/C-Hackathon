@@ -11,11 +11,13 @@ namespace Decision_Pizza_Staff_App.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IWaiterLogic login;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IWaiterLogic login)
         {
             _logger = logger;
+            this.login = login;
         }
 
         public IActionResult Index()
@@ -23,8 +25,14 @@ namespace Decision_Pizza_Staff_App.Controllers
             return View();
         }
 
+        public IActionResult Manager()
+        {
+            return View();
+        }
+
         public IActionResult WaitersPage(WaiterManager waiterManager)
         {
+            // var modelToBePassed = 
             return View(waiterManager);
         }
 

@@ -12,9 +12,9 @@ namespace Decision_Pizza_Staff_App.Controllers
 
     public class LoginController : Controller
     {
-        private readonly ILogin login;
+        private readonly IWaiterLogic login;
 
-        public LoginController(ILogin login)
+        public LoginController(IWaiterLogic login)
         {
             this.login = login;
         }
@@ -26,9 +26,62 @@ namespace Decision_Pizza_Staff_App.Controllers
             return RedirectLoctic(EmployId);
         }
 
+        [HttpPost]
+        public IActionResult RequestShift(WaiterManager waiterManager)
+        {
+            var getWaiterTime = login.GetTimeSlots(waiterManager);
+            Console.WriteLine(getWaiterTime.Count());
+            var ControllerDirect = RedirectToAction("WaitersPage", "Home");
+
+            if (getWaiterTime.Count() == 0){
+                login.InsertTimeSlots(waiterManager);
+                ControllerDirect = RedirectToAction("WaitersPage", "Home", 
+                        new WaiterManager(){
+                            EmployId = waiterManager.EmployId,
+                            FullNames = waiterManager.FullNames,
+                            Status = waiterManager.Status,
+                            Message = $"Your request was recoarded" ,
+                            TimeslotsResults = getWaiterTime.ToList()
+                        });
+            } else {
+                foreach (var item in getWaiterTime)
+                {
+                    if (item.Day == waiterManager.Day && item.Time == item.Time){
+                        ControllerDirect = RedirectToAction("WaitersPage", "Home", 
+                        new WaiterManager(){
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames,
+                            Status = item.Status,
+                            Message = $"Your request for this {item.Day} @ {item.Time} the status is {item.Status}" ,
+                            // TimeslotsResults = getWaiterTime
+                        });
+                    } else {
+                        login.InsertTimeSlots(waiterManager);
+                        ControllerDirect = RedirectToAction("WaitersPage", "Home", 
+                                new WaiterManager(){
+                                    EmployId = item.EmployId,
+                                    FullNames = item.FullNames,
+                                    Status = item.Status,
+                                    Message = $"Your request was recoarded",
+                                    TimeslotsResults = getWaiterTime.ToList()
+                        });
+                    }
+                }
+            }
+            return ControllerDirect;
+        }
+
+
+
         public IActionResult RedirectLoctic(string EmployId)
         {
+            var getWaiterTime = login.GetTimeSlots(new WaiterManager(){EmployId = EmployId});
             var results = login.GetWaiterManager(EmployId);
+
+            foreach (var item in getWaiterTime)
+            {
+                
+            }
             var ControllerDirect = RedirectToAction("Index", "Home");
             if (results.Count() == 0)
             {
@@ -41,8 +94,17 @@ namespace Decision_Pizza_Staff_App.Controllers
                 {
                     if (wm.Status == "manager")
                     {
+                        // foreach (var item in collection)
+                        // {
+                            
+                        // }
                         TempData["manager"] = EmployId;
-                        ControllerDirect = RedirectToAction("Manager", "Home");
+                        ControllerDirect = RedirectToAction("Manager", "Home",new WaiterManager()
+                        {
+                            EmployId = EmployId,
+                            FullNames = wm.FullNames,
+                            Status = wm.Status
+                        });
                     }
                     if (wm.Status == "waiter")
                     {
@@ -51,7 +113,8 @@ namespace Decision_Pizza_Staff_App.Controllers
                             EmployId = EmployId,
                             FullNames = wm.FullNames,
                             Status = wm.Status,
-                            Message = $"Welcome {wm.FullNames}"
+                            Message = "",
+                            TimeslotsResults = getWaiterTime.ToList()
                         });
                     }
                 }

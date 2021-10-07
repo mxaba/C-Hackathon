@@ -15654,6 +15654,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Home/Manager.cshtml",
+      "TargetPath": "Views\\Home\\Manager.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/mxaba/CodeX/C# Projects/CSharp-Hackathon/Decision-Pizza-Staff-App/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"

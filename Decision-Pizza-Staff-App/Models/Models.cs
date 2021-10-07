@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Decision_Pizza_Staff_App.Models
 {
 
@@ -7,9 +9,9 @@ namespace Decision_Pizza_Staff_App.Models
         public string FullNames { get; set; }
         public string Status { get; set; }
         public string TimeSlotsId { get; set; }
+        public List<WaiterManager> TimeslotsResults { get; set; }
         public string Day { get; set; }
         public string Time { get; set; }
         public string Message { get; set; }
-
     }
 }

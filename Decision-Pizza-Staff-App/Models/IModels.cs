@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Decision_Pizza_Staff_App.Models
 {
    public interface IWaiterManager
@@ -6,6 +8,7 @@ namespace Decision_Pizza_Staff_App.Models
         string FullNames { get; set; }
         string Status { get; set; }
         string TimeSlotsId { get; set; }
+        List<WaiterManager> TimeslotsResults { get; set; }
         string Day { get; set; }
         string Time { get; set; }
         string Message { get; set; }
