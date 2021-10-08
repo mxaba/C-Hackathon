@@ -30,9 +30,11 @@ namespace Decision_Pizza_Staff_App.Models
         {
             using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
             waiter.Status = "Pending";
+            var resultsCounter = connection.Query<WaiterManager>("SELECT * FROM TimeSlots;").ToList();
+            waiter.TimeSlotsId = resultsCounter.Count();;
             //return (IEnumerable<WaiterManager>)
-            var results = connection.Query<WaiterManager>("INSERT INTO TimeSlots (EmployId, FullNames, Status, Time, Day)" + 
-                "VALUES (@EmployId, @FullNames, @Status, @Time, @Day);", waiter);
+            var results = connection.Query<WaiterManager>("INSERT INTO TimeSlots (TimeSlotsId, EmployId, FullNames, Status, Time, Day)" + 
+                "VALUES (@TimeSlotsId, @EmployId, @FullNames, @Status, @Time, @Day);", waiter);
             return results;
         }
 
@@ -56,9 +58,15 @@ namespace Decision_Pizza_Staff_App.Models
         {
             using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
             //return (IEnumerable<WaiterManager>)
-            var results = connection.Query<WaiterManager>("UPDATE TimeSlots SET Status='Reject' WHERE TimeSlotsId=@TimeSlotsId;", new {TimeSlotsId=id});
-            
+            var results = connection.Query<WaiterManager>("UPDATE TimeSlots SET Status='Reject' WHERE TimeSlotsId=@TimeSlotsId;", new {TimeSlotsId=id});            
             return results;
+        }
+
+        public void ApproveRequestShift(int id)
+        {
+            using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
+            //return (IEnumerable<WaiterManager>)
+            connection.Query<WaiterManager>("UPDATE TimeSlots SET Status='Approved' WHERE TimeSlotsId=@TimeSlotsId;", new {TimeSlotsId=id});
         }
 
     }

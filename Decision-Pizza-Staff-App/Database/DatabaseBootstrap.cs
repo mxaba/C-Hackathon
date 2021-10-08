@@ -39,7 +39,7 @@ namespace Decision_Pizza_Staff_App.Database
             );
 
             connection.Execute("Create Table TimeSlots (" +
-                "TimeSlotsId INT PRIMARY KEY," +
+                "TimeSlotsId INTEGER NOT NULL PRIMARY KEY," +
                 "EmployId VARCHAR(100) NOT NULL," +
                 "FullNames VARCHAR(100) NOT NULL," +
                 "Status VARCHAR(100) NOT NULL," +
@@ -48,20 +48,6 @@ namespace Decision_Pizza_Staff_App.Database
             );
 
             connection.Execute("CREATE UNIQUE INDEX IWaiterManager ON WaiterManager (EmployId);");
-
-            int i = 0;
-            while (i <= 10)
-            {
-                var waiterManagerData = new WaiterManager(){
-                    EmployId = Faker.Identification.UsPassportNumber(),
-                    FullNames = Faker.Name.First(),
-                    Status = "waiter",
-                };
-                Task.Run(async () => {
-                    await waiterRepository.Create(waiterManagerData);
-                }).GetAwaiter().GetResult();
-                i++;
-            }
 
             Task.Run(async () => {
                     await waiterRepository.CreateManager();

@@ -29,9 +29,11 @@ namespace Decision_Pizza_Staff_App.Controllers
         {
             var getWaiterTime = login.GetTimeSlots().ToList();
             var slotsAdd = new List<WaiterManager>();
+            var RequestAddShift1 = new List<WaiterManager>();
+            var RequestAddShift2 = new List<WaiterManager>();
+            var RequestAddShift3 = new List<WaiterManager>();
             foreach (var item in getWaiterTime)
             {
-                Console.WriteLine(item.FullNames);
                 slotsAdd.Add(new WaiterManager { 
                     TimeSlotsId=item.TimeSlotsId,
                     EmployId=item.EmployId,
@@ -40,9 +42,31 @@ namespace Decision_Pizza_Staff_App.Controllers
                     Time=item.Time,
                     Day=item.Day
                 });
+
+                if(item.Time == "09:00 - 12:00" && item.Status == "Approved") {
+                    RequestAddShift1.Add(new WaiterManager { 
+                        TimeSlotsId=item.TimeSlotsId,
+                        EmployId=item.EmployId,
+                        FullNames=item.FullNames,
+                        Status=item.Status,
+                        Time=item.Time,
+                        Day=item.Day
+                    });
+                } if(item.Time == "12:00 - 16:00" && item.Status == "Approved") {
+                    RequestAddShift2.Add(new WaiterManager { 
+                        TimeSlotsId=item.TimeSlotsId,
+                        EmployId=item.EmployId,
+                        FullNames=item.FullNames,
+                        Status=item.Status,
+                        Time=item.Time,
+                        Day=item.Day
+                    });
+                }
             }
 
             waiterManager.TimeslotsResults = slotsAdd;
+            waiterManager.RequestAddShift1 = RequestAddShift1;
+            waiterManager.RequestAddShift2 = RequestAddShift2;
             return View(waiterManager);
         }
 
@@ -52,7 +76,7 @@ namespace Decision_Pizza_Staff_App.Controllers
             var slotsAdd = new List<WaiterManager>();
             foreach (var item in getWaiterTime)
             {
-                slotsAdd.Add(new WaiterManager { 
+                slotsAdd.Add(new WaiterManager {    
                     TimeSlotsId=item.TimeSlotsId,
                     EmployId=item.EmployId,
                     FullNames=item.FullNames,

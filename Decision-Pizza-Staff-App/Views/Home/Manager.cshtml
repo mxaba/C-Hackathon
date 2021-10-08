@@ -14,95 +14,86 @@
       </Div>
     </div>
     <br>
-    <form >
-    <table class="table table-hover table-dark">
+
+    <div class="text-center">
+    <table class="table table-primary table-hover table-bordered border-primary">
       <tr>
             <h3 class="text-center">Weekly Schedule</h3>
       </tr>
-      <tr>
-      <th scope="col">Time</th>
-      <th scope="col">Monday</th>
-      <th scope="col">Tuesday</th>
-      <th scope="col">Wednesday</th>
-      <th scope="col">Thursday</th>
-      <th scope="col">Friday</th>
-      </tr>
-      <tr>
-          <td>09:00 - 12:00</td>
-          @foreach (var timeSlot in Model.TimeslotsResults){
-            if (timeSlot.Time == "09:00 - 12:00" && timeSlot.Day == "Monday" && timeSlot.Status == "Approved")
+        <tr>
+        <th scope="col">Time</th>
+        <th scope="col">Monday</th>
+        <th scope="col">Tuesday</th>
+        <th scope="col">Wednesday</th>
+        <th scope="col">Thursday</th>
+        <th scope="col">Friday</th>
+        </tr>
+        <tr>
+            <td>09:00 - 12:00</td>
+            @foreach (var item in Model.RequestAddShift1)
             {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
-            } else if (timeSlot.Time == "09:00 - 12:00" && timeSlot.Day == "Tuesday" && timeSlot.Status == "Approved")
-            {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
-            } else if (timeSlot.Time == "09:00 - 12:00" && timeSlot.Day == "Wednesday" && timeSlot.Status == "Approved")
-            {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
-            } else if (timeSlot.Time == "09:00 - 12:00" && timeSlot.Day == "Thursday" && timeSlot.Status == "Approved")
-            {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
-            } else if (timeSlot.Time == "09:00 - 12:00" && timeSlot.Day == "Friday" && timeSlot.Status == "Approved")
-            {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
+                if (item.Day == "Monday")
+                { 
+                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
+                } else if (item.Day == "Tuesday")
+                { 
+                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
+                } else if (item.Day == "Wednesday")
+                { 
+                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
+                } else if (item.Day == "Thursday")
+                { 
+                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
+                } else if (item.Day == "Friday")
+                { 
+                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
+                } else
+                {
+                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"></ul></td>  
+                }
             }
-          }
-      </tr>
-      <tr>
-          <td>12:00 - 16:00</td>
-          @foreach (var timeSlot in Model.TimeslotsResults){
-            if (timeSlot.Time == "12:00 - 16:00" && timeSlot.Day == "Monday" && timeSlot.Status == "Approved")
+            @* <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>    *@
+        </tr>
+        <tr>
+            <td>12:00 - 16:00</td>
+            @foreach (var item in Model.RequestAddShift2)
             {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
-            } else if (timeSlot.Time == "12:00 - 16:00" && timeSlot.Day == "Tuesday" && timeSlot.Status == "Approved")
-            {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
-            } else if (timeSlot.Time == "12:00 - 16:00" && timeSlot.Day == "Wednesday" && timeSlot.Status == "Approved")
-            {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
-            } else if (timeSlot.Time == "12:00 - 16:00" && timeSlot.Day == "Thursday" && timeSlot.Status == "Approved")
-            {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
-            } else if (timeSlot.Time == "12:00 - 16:00" && timeSlot.Day == "Friday" && timeSlot.Status == "Approved")
-            {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
+                if (item.Day == "Monday")
+                { 
+                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
+                } else if (item.Day == "Tuesday")
+                { 
+                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
+                } else if (item.Day == "Wednesday")
+                { 
+                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
+                } else if (item.Day == "Thursday")
+                { 
+                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
+                } else if (item.Day == "Friday")
+                { 
+                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
+                } else
+                {
+                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"></ul></td>  
+                }
             }
-          }
 
-      </tr>
-      <tr>
-          <td>16:00 - 21:00</td>
-          @foreach (var timeSlot in Model.TimeslotsResults){
-            if (timeSlot.Time == "16:00 - 21:00" && timeSlot.Day == "Monday" && timeSlot.Status == "Approved")
-            {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
-            } else if (timeSlot.Time == "16:00 - 21:00" && timeSlot.Day == "Tuesday" && timeSlot.Status == "Approved")
-            {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
-            } else if (timeSlot.Time == "16:00 - 21:00" && timeSlot.Day == "Wednesday" && timeSlot.Status == "Approved")
-            {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
-            } else if (timeSlot.Time == "16:00 - 21:00" && timeSlot.Day == "Thursday" && timeSlot.Status == "Approved")
-            {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
-            } else if (timeSlot.Time == "16:00 - 21:00" && timeSlot.Day == "Friday" && timeSlot.Status == "Approved")
-            {
-              <td class="table-success text-white">@timeSlot.FullNames </td>  
-            }
-          } 
-      </tr>
-      
+        </tr>
+        <tr>
+            <td>16:00 - 21:00</td>
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
+        </tr>
     </table>
-    <form action="">
-        <div class="container-lg">
-          <div class="col-md-12 text-center">
-              <button type="button" class="btn btn-primary btn-lg btn-block">Clear Table</button>
-          </div>
-      </div>
-    </form>
-      
-
-    </form>
+</div>
     <br>
 
 
@@ -121,12 +112,12 @@
           <td>@timeSlot.Day</td>
           <td>@timeSlot.Time</td>
           <td>
-            @* <form action="" method="post"> *@
+            @* <form asp-controller="Login" asp-action="RejectRequestShift" method="post"> *@
               <a asp-controller="Login" asp-route-Id="@timeSlot.TimeSlotsId" asp-action="RejectRequestShift" class="btn btn-outline-danger" >Reject</a>
             @* </form> *@
 
             @* <form action="" method="post"> *@
-              <a asp-controller="" asp-route-Id="@timeSlot.TimeSlotsId" asp-action="" class="btn btn-outline-success" >Approve</a>
+              <a asp-controller="Login" asp-route-Id="@timeSlot.TimeSlotsId" asp-action="ApproveRequestShift">Approve</a>
             @* </form> *@
 
             </td>

@@ -38,6 +38,20 @@ namespace Decision_Pizza_Staff_App.Controllers
             return View();
         }
 
+        // [HttpPost]
+        public IActionResult ApproveRequestShift(int id, WaiterManager waiterManager)
+        {
+            Console.WriteLine(waiterManager.FullNames);
+            Console.WriteLine(id);
+            login.ApproveRequestShift(id);
+            var ControllerDirect = RedirectToAction("Manager", "Home",
+                        new WaiterManager()
+                        {
+                            FullNames = waiterManager.FullNames,
+                        });
+            return ControllerDirect;
+        }
+
         private IActionResult RequestShiftLogic(WaiterManager waiterManager)
         {
             var getWaiterTime = login.GetTimeSlotsById(waiterManager);
