@@ -12,11 +12,11 @@ namespace Decision_Pizza_Staff_App.Controllers
     public class HomeController : Controller
     {
         private readonly IWaiterLogic login;
-        private readonly ILogger<HomeController> _logger;
+        private readonly IManagerLogicTable managerLogicTable;
 
-        public HomeController(ILogger<HomeController> logger, IWaiterLogic login)
+        public HomeController(IManagerLogicTable managerLogicTable, IWaiterLogic login)
         {
-            _logger = logger;
+            this.managerLogicTable = managerLogicTable;
             this.login = login;
         }
 
@@ -27,56 +27,17 @@ namespace Decision_Pizza_Staff_App.Controllers
 
         public IActionResult Manager(WaiterManager waiterManager)
         {
-            var getWaiterTime = login.GetTimeSlots().ToList();
-            var slotsAdd = new List<WaiterManager>();
-            var RequestAddShift1 = new List<WaiterManager>();
-            var RequestAddShift2 = new List<WaiterManager>();
-            var RequestAddShift3 = new List<WaiterManager>();
-            foreach (var item in getWaiterTime)
-            {
-                slotsAdd.Add(new WaiterManager { 
-                    TimeSlotsId=item.TimeSlotsId,
-                    EmployId=item.EmployId,
-                    FullNames=item.FullNames,
-                    Status=item.Status,
-                    Time=item.Time,
-                    Day=item.Day
-                });
-
-                if(item.Time == "09:00 - 12:00" && item.Status == "Approved") {
-                    RequestAddShift1.Add(new WaiterManager { 
-                        TimeSlotsId=item.TimeSlotsId,
-                        EmployId=item.EmployId,
-                        FullNames=item.FullNames,
-                        Status=item.Status,
-                        Time=item.Time,
-                        Day=item.Day
-                    });
-                } if(item.Time == "12:00 - 16:00" && item.Status == "Approved") {
-                    RequestAddShift2.Add(new WaiterManager { 
-                        TimeSlotsId=item.TimeSlotsId,
-                        EmployId=item.EmployId,
-                        FullNames=item.FullNames,
-                        Status=item.Status,
-                        Time=item.Time,
-                        Day=item.Day
-                    });
-                }
-            }
-
-            waiterManager.TimeslotsResults = slotsAdd;
-            waiterManager.RequestAddShift1 = RequestAddShift1;
-            waiterManager.RequestAddShift2 = RequestAddShift2;
+            managerLogicTable.ManagerLogic(waiterManager);
             return View(waiterManager);
         }
 
         public IActionResult WaitersPage(WaiterManager waiterManager)
         {
             var getWaiterTime = login.GetTimeSlotsById(waiterManager).ToList();
-            var slotsAdd = new List<WaiterManager>();
+            var slotsAdd = new List<TimeslotsResults>();
             foreach (var item in getWaiterTime)
             {
-                slotsAdd.Add(new WaiterManager {    
+                slotsAdd.Add(new TimeslotsResults {    
                     TimeSlotsId=item.TimeSlotsId,
                     EmployId=item.EmployId,
                     FullNames=item.FullNames,

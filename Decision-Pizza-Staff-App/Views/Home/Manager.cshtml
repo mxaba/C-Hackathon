@@ -30,67 +30,103 @@
         </tr>
         <tr>
             <td>09:00 - 12:00</td>
-            @foreach (var item in Model.RequestAddShift1)
-            {
-                if (item.Day == "Monday")
-                { 
-                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
-                } else if (item.Day == "Tuesday")
-                { 
-                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
-                } else if (item.Day == "Wednesday")
-                { 
-                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
-                } else if (item.Day == "Thursday")
-                { 
-                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
-                } else if (item.Day == "Friday")
-                { 
-                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
-                } else
-                {
-                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"></ul></td>  
-                }
-            }
-            @* <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
-            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
-            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
-            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
-            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>    *@
-        </tr>
-        <tr>
-            <td>12:00 - 16:00</td>
-            @foreach (var item in Model.RequestAddShift2)
-            {
-                if (item.Day == "Monday")
-                { 
-                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
-                } else if (item.Day == "Tuesday")
-                { 
-                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
-                } else if (item.Day == "Wednesday")
-                { 
-                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
-                } else if (item.Day == "Thursday")
-                { 
-                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
-                } else if (item.Day == "Friday")
-                { 
-                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">@item.FullNames</ul></td>  
-                } else
-                {
-                  <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"></ul></td>  
-                }
-            }
+            
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.ApprovedFirstShiftMondayModel)
+              {
+                  <li>@item.FullNames</li>
+              } </ul></td>
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.TuesdayModel)
+              {
+                  <li>@item.FullNames</li>
+              } </ul></td>   
+            
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.WednesdayModel)
+              {
+                  <li>@item.FullNames</li>
+              } </ul> </td>
+
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.ThursdayModel)
+              {
+                  <li>@item.FullNames</li>
+              } </ul> </td>
+
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.FridayModel)
+              {
+                  <li>@item.FullNames</li>
+              } </ul> </td>
 
         </tr>
         <tr>
+            <td>12:00 - 16:00</td>
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.approvedSecondShiftMondayModel)
+              {
+                  <li>@item.FullNames</li>
+              } </ul></td>
+
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.TuesdayModel2nd)
+              {
+                  <li>@item.FullNames</li>
+              } </ul> </td>
+
+              <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.WednesdayModel2nd)
+              {
+                  <li>@item.FullNames</li>
+              } </ul> </td>
+
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.ThursdayModel2nd)
+              {
+                  <li>@item.FullNames</li>
+              } </ul> </td>
+            
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.FridaysModel2nd)
+              {
+                  <li>@item.FullNames</li>
+              } </ul> </td>
+
+        </tr>
+
+        <tr>
             <td>16:00 - 21:00</td>
-            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
-            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
-            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
-            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
-            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled"><li></li><li> </li><li> </li></ul></td>   
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.approvedThirdtShiftMondayModel)
+              {
+                  <li>@item.FullNames</li>
+              }
+            </ul></td>
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.TuesdayModel3rd)
+              {
+                  <li>@item.FullNames</li>
+              } </ul> </td>
+            
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.WednesdayModel3rd)
+              {
+                  <li>@item.FullNames</li>
+              } </ul> </td>
+
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.ThursdayModel3rd)
+              {
+                  <li>@item.FullNames</li>
+              } </ul> </td>
+            
+            <td class="@Html.DisplayFor(model => model.ColourChange)"><ul class="list-unstyled">
+              @foreach (var item in Model.FridayModel3rd)
+              {
+                  <li>@item.FullNames</li>
+              } </ul> </td>
+                 
         </tr>
     </table>
 </div>

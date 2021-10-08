@@ -27,9 +27,9 @@ namespace Decision_Pizza_Staff_App.Database
             var tableTime = connection.Query<string>("SELECT name FROM sqlite_master WHERE type='table' AND name = 'TimeSlots';");
             var tableNameTime = tableTime.FirstOrDefault();
             if ((!string.IsNullOrEmpty(tableName) && tableName == "WaiterManager") || (!string.IsNullOrEmpty(tableNameTime) && tableNameTime == "TimeSlots"))
-                // connection.Execute("DROP TABLE WaiterManager");
-                // connection.Execute("DROP TABLE TimeSlots");
-                return;
+                connection.Execute("DROP TABLE WaiterManager");
+                connection.Execute("DROP TABLE TimeSlots");
+                // return;
             
 
             connection.Execute("Create Table WaiterManager (" +
@@ -39,7 +39,7 @@ namespace Decision_Pizza_Staff_App.Database
             );
 
             connection.Execute("Create Table TimeSlots (" +
-                "TimeSlotsId INTEGER NOT NULL PRIMARY KEY," +
+                "TimeSlotsId INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "EmployId VARCHAR(100) NOT NULL," +
                 "FullNames VARCHAR(100) NOT NULL," +
                 "Status VARCHAR(100) NOT NULL," +

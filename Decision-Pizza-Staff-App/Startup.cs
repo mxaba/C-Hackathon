@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Decision_Pizza_Staff_App.Database;
 using Decision_Pizza_Staff_App.Models;
+using Decision_Pizza_Staff_App.Models.Queries;
 
 namespace Decision_Pizza_Staff_App
 {
@@ -28,9 +29,11 @@ namespace Decision_Pizza_Staff_App
             services.AddSingleton(new DatabaseConfig { DatabaseConnectionConfiguration = Configuration.GetConnectionString("DefaultConnection") });
             services.AddControllersWithViews();
 
+            services.AddSingleton<IManagerLogicTable, ManagerLogicTable>();
             services.AddSingleton<IDatabaseBootstrap, DatabaseBootstrap>();
             services.AddSingleton<IWaiterRepository, WaiterRepository>();
             services.AddSingleton<IWaiterLogic, WaiterLogic>();
+            services.AddSingleton<IGetSlotsStatus, GetSlotsStatus>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
