@@ -3,96 +3,140 @@
 @{
     ViewData["Title"] = "Manager's Page";
 }
+@if (!String.IsNullOrEmpty(Model.FullNames))
+{
 
-<div id="Manager" class="container-lg" " >
- <Div class >
-       <h1 class="text-center">Decision Pizza</h1>
-      <h1 class="display-4"> Welcome @Html.DisplayFor(model => model.FullNames)</h1>
-       
-    </Div>
-</div>
-<br>
-<form >
-<table class="table table-hover table-dark">
-    <tr>
-          <h3 class="text-center">Weekly Schedule</h3>
-    </tr>
-    <tr>
-    <th scope="col">Time</th>
-    <th scope="col">Monday</th>
-    <th scope="col">Tuesday</th>
-    <th scope="col">Wednesday</th>
-    <th scope="col">Thursday</th>
-    <th scope="col">Friday</th>
-    </tr>
-    <tr>
-        <td>09:00 - 12:00</td>
-        <td class="table-success text-white"></td>   
-        <td class="table-success text-white"></td>   
-        <td class="table-danger text-white"></td>   
-        <td class="table-success text-white"></td>   
-        <td class="table-success text-white"></td>   
-    </tr>
-    <tr>
-        <td>12:00 - 16:00</td>
-        <td class="table-success text-white"></td>   
-        <td class="table-danger text-white"></td>   
-        <td class="table-success text-white"></td>   
-        <td class="table-success text-white"></td>   
-        <td class="table-success text-white"></td>   
-
-    </tr>
-    <tr>
-        <td>16:00 - 21:00</td>
-        <td class="table-success text-white"></td>   
-        <td class="table-danger text-white"></td>   
-        <td class="table-success text-white"></td>   
-        <td class="table-success text-white"></td>   
-        <td class="table-success text-white"></td>   
-    </tr>
-    
-</table>
-<form action="">
-     <div class="container-lg">
-        <div class="col-md-12 text-center">
-           <button type="button" class="btn btn-primary btn-lg btn-block">Clear Table</button>
-        </div>
-    </div></form>
-   
- 
-</form>
-<br>
-
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <table class="table table-hover table-dark">
-        <tr>
-       <th>Name</th>
-       <th>Day</th>
-       <th>Time Slot</th>
-       <th>Options</th>
-     </tr>
-     @foreach (var timeSlot in Model.TimeslotsResults){
-       <tr>
-        <td>@timeSlot.FullNames </td>
-        <td>@timeSlot.Day</td>
-        <td>@timeSlot.Time</td>
-       <td>
-         <form action="" method="post">
-           <button type="button" class="btn btn-outline-danger">Reject</button>
-         </form>
-
-         <form action="" method="post">
-           <button type="button" class="btn btn-outline-success">Approve</button>
-         </form>
-
-         </td>
-       </tr>
-      }
-     
-    
-      </table>
+    <div id="Manager" class="container-lg" >
+    <Div class >
+          <h1 class="text-center">Decision Pizza</h1>
+        <h3 class="display-4"> Welcome @Html.DisplayFor(model => model.FullNames)</h3>
+          
+      </Div>
     </div>
+    <br>
+    <form >
+    <table class="table table-hover table-dark">
+      <tr>
+            <h3 class="text-center">Weekly Schedule</h3>
+      </tr>
+      <tr>
+      <th scope="col">Time</th>
+      <th scope="col">Monday</th>
+      <th scope="col">Tuesday</th>
+      <th scope="col">Wednesday</th>
+      <th scope="col">Thursday</th>
+      <th scope="col">Friday</th>
+      </tr>
+      <tr>
+          <td>09:00 - 12:00</td>
+          @foreach (var timeSlot in Model.TimeslotsResults){
+            if (timeSlot.Time == "09:00 - 12:00" && timeSlot.Day == "Monday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            } else if (timeSlot.Time == "09:00 - 12:00" && timeSlot.Day == "Tuesday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            } else if (timeSlot.Time == "09:00 - 12:00" && timeSlot.Day == "Wednesday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            } else if (timeSlot.Time == "09:00 - 12:00" && timeSlot.Day == "Thursday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            } else if (timeSlot.Time == "09:00 - 12:00" && timeSlot.Day == "Friday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            }
+          }
+      </tr>
+      <tr>
+          <td>12:00 - 16:00</td>
+          @foreach (var timeSlot in Model.TimeslotsResults){
+            if (timeSlot.Time == "12:00 - 16:00" && timeSlot.Day == "Monday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            } else if (timeSlot.Time == "12:00 - 16:00" && timeSlot.Day == "Tuesday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            } else if (timeSlot.Time == "12:00 - 16:00" && timeSlot.Day == "Wednesday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            } else if (timeSlot.Time == "12:00 - 16:00" && timeSlot.Day == "Thursday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            } else if (timeSlot.Time == "12:00 - 16:00" && timeSlot.Day == "Friday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            }
+          }
+
+      </tr>
+      <tr>
+          <td>16:00 - 21:00</td>
+          @foreach (var timeSlot in Model.TimeslotsResults){
+            if (timeSlot.Time == "16:00 - 21:00" && timeSlot.Day == "Monday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            } else if (timeSlot.Time == "16:00 - 21:00" && timeSlot.Day == "Tuesday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            } else if (timeSlot.Time == "16:00 - 21:00" && timeSlot.Day == "Wednesday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            } else if (timeSlot.Time == "16:00 - 21:00" && timeSlot.Day == "Thursday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            } else if (timeSlot.Time == "16:00 - 21:00" && timeSlot.Day == "Friday" && timeSlot.Status == "Approved")
+            {
+              <td class="table-success text-white">@timeSlot.FullNames </td>  
+            }
+          } 
+      </tr>
+      
+    </table>
+    <form action="">
+        <div class="container-lg">
+          <div class="col-md-12 text-center">
+              <button type="button" class="btn btn-primary btn-lg btn-block">Clear Table</button>
+          </div>
+      </div>
+    </form>
+      
+
+    </form>
+    <br>
+
+
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-hover table-dark">
+          <tr>
+          <th>Name</th>
+          <th>Day</th>
+          <th>Time Slot</th>
+          <th>Options</th>
+        </tr>
+        @foreach (var timeSlot in Model.TimeslotsResults){
+          <tr>
+          <td>@timeSlot.FullNames </td>
+          <td>@timeSlot.Day</td>
+          <td>@timeSlot.Time</td>
+          <td>
+            @* <form action="" method="post"> *@
+              <a asp-controller="" asp-route-Id="@timeSlot.TimeSlotsId" asp-action="" class="btn btn-outline-danger" >Reject</a>
+            @* </form> *@
+
+            @* <form action="" method="post"> *@
+              <a asp-controller="" asp-route-Id="@timeSlot.TimeSlotsId" asp-action="" class="btn btn-outline-success" >Approve</a>
+            @* </form> *@
+
+            </td>
+          </tr>
+        }
+        
+      
+        </table>
+      </div>
   </div>
-</div>
+} else {
+        <h3 class="center" style="margin-top: 50%;">You don't have access to this page❌</h3>
+}
