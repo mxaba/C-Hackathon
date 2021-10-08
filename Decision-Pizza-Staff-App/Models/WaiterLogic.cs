@@ -52,5 +52,14 @@ namespace Decision_Pizza_Staff_App.Models
             return results;
         }
 
+        public IEnumerable<WaiterManager> RejectRequestShift(int id)
+        {
+            using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
+            //return (IEnumerable<WaiterManager>)
+            var results = connection.Query<WaiterManager>("UPDATE TimeSlots SET Status='Reject' WHERE TimeSlotsId=@TimeSlotsId;", new {TimeSlotsId=id});
+            
+            return results;
+        }
+
     }
 }

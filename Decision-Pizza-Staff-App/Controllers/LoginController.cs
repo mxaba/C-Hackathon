@@ -29,46 +29,64 @@ namespace Decision_Pizza_Staff_App.Controllers
         [HttpPost]
         public IActionResult RequestShift(WaiterManager waiterManager)
         {
+            return RequestShiftLogic(waiterManager);
+        }
+
+        [HttpPost]
+        public IActionResult RejectRequestShift(int? EmployId)
+        {
+            return View();
+        }
+
+        private IActionResult RequestShiftLogic(WaiterManager waiterManager)
+        {
             var getWaiterTime = login.GetTimeSlotsById(waiterManager);
             Console.WriteLine(getWaiterTime.Count());
             var ControllerDirect = RedirectToAction("WaitersPage", "Home");
 
-            if (getWaiterTime.Count() == 0){
+            if (getWaiterTime.Count() == 0)
+            {
                 login.InsertTimeSlots(waiterManager);
-                ControllerDirect = RedirectToAction("WaitersPage", "Home", 
-                        new WaiterManager(){
+                ControllerDirect = RedirectToAction("WaitersPage", "Home",
+                        new WaiterManager()
+                        {
                             EmployId = waiterManager.EmployId,
                             FullNames = waiterManager.FullNames,
                             Status = waiterManager.Status,
                             Message = $"Your request was recoarded"
                         });
-            } else {
+            }
+            else
+            {
                 foreach (var item in getWaiterTime)
                 {
-                    if (item.Day == waiterManager.Day && item.Time == waiterManager.Time){
-                        ControllerDirect = RedirectToAction("WaitersPage", "Home", 
-                        new WaiterManager(){
+                    if (item.Day == waiterManager.Day && item.Time == waiterManager.Time)
+                    {
+                        ControllerDirect = RedirectToAction("WaitersPage", "Home",
+                        new WaiterManager()
+                        {
                             EmployId = item.EmployId,
                             FullNames = item.FullNames,
                             Status = item.Status,
-                            Message = $"Your request for this {item.Day} @ {item.Time} the status is {item.Status}" ,
+                            Message = $"Your request for this {item.Day} @ {item.Time} the status is {item.Status}",
                         });
-                    } else {
+                    }
+                    else
+                    {
                         login.InsertTimeSlots(waiterManager);
-                        ControllerDirect = RedirectToAction("WaitersPage", "Home", 
-                                new WaiterManager(){
+                        ControllerDirect = RedirectToAction("WaitersPage", "Home",
+                                new WaiterManager()
+                                {
                                     EmployId = item.EmployId,
                                     FullNames = item.FullNames,
                                     Status = item.Status,
                                     Message = $"Your request was recoarded",
-                        });
+                                });
                     }
                 }
             }
             return ControllerDirect;
         }
-
-
 
         public IActionResult RedirectLoctic(string EmployId)
         {

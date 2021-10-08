@@ -9,7 +9,7 @@
     <div id="Manager" class="container-lg" >
     <Div class >
           <h1 class="text-center">Decision Pizza</h1>
-        <h3 class="display-4"> Welcome @Html.DisplayFor(model => model.FullNames)</h3>
+        @* <h3 class="display-9"> Welcome @Html.DisplayFor(model => model.FullNames)</h3> *@
           
       </Div>
     </div>
@@ -122,7 +122,7 @@
           <td>@timeSlot.Time</td>
           <td>
             @* <form action="" method="post"> *@
-              <a asp-controller="" asp-route-Id="@timeSlot.TimeSlotsId" asp-action="" class="btn btn-outline-danger" >Reject</a>
+              <a asp-controller="Login" asp-route-Id="@timeSlot.TimeSlotsId" asp-action="RejectRequestShift" class="btn btn-outline-danger" >Reject</a>
             @* </form> *@
 
             @* <form action="" method="post"> *@
