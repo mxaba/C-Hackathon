@@ -13,5 +13,8 @@ namespace Decision_Pizza_Staff_App.Models
         public string Day { get; set; }
         public string Time { get; set; }
         public string Message { get; set; }
+
+        // If less than three waiters for a shift, change this variable to = "table-danger text-secondary"
+        public string ColourChange = "table-success text-secondary";
     }
 }
