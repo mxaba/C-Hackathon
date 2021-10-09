@@ -42,7 +42,7 @@ namespace Decision_Pizza_Staff_App.Models
         {
             using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
             //return (IEnumerable<WaiterManager>)
-            var results = connection.Query<WaiterManager>("SELECT * FROM TimeSlots WHERE (EmployId=@EmployId);", waiter);
+            var results = connection.Query<WaiterManager>("SELECT * FROM TimeSlots WHERE EmployId=@EmployId;", waiter);
             return results;
         }
 

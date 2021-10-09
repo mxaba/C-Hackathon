@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Decision_Pizza_Staff_App.Models;
+using Decision_Pizza_Staff_App.Models.Queries;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,10 +14,12 @@ namespace Decision_Pizza_Staff_App.Controllers
     public class LoginController : Controller
     {
         private readonly IWaiterLogic login;
+        private readonly IRequestShift requestShift;
 
-        public LoginController(IWaiterLogic login)
+        public LoginController(IWaiterLogic login, IRequestShift requestShift)
         {
             this.login = login;
+            this.requestShift = requestShift;
         }
 
         // GET: /<controller>/
@@ -41,8 +44,6 @@ namespace Decision_Pizza_Staff_App.Controllers
         // [HttpPost]
         public IActionResult ApproveRequestShift(int id, WaiterManager waiterManager)
         {
-            Console.WriteLine(waiterManager.FullNames);
-            Console.WriteLine(id);
             login.ApproveRequestShift(id);
             var ControllerDirect = RedirectToAction("Manager", "Home",
                         new WaiterManager()
@@ -54,50 +55,18 @@ namespace Decision_Pizza_Staff_App.Controllers
 
         private IActionResult RequestShiftLogic(WaiterManager waiterManager)
         {
-            var getWaiterTime = login.GetTimeSlotsById(waiterManager);
-            Console.WriteLine(getWaiterTime.Count());
+            var getWaiterTime = requestShift.RequestShiftSpecific(waiterManager);
             var ControllerDirect = RedirectToAction("WaitersPage", "Home");
 
-            if (getWaiterTime.Count() == 0)
+            if (getWaiterTime.Count() == 1)
             {
-                login.InsertTimeSlots(waiterManager);
-                ControllerDirect = RedirectToAction("WaitersPage", "Home",
-                        new WaiterManager()
-                        {
-                            EmployId = waiterManager.EmployId,
-                            FullNames = waiterManager.FullNames,
-                            Status = waiterManager.Status,
-                            Message = $"Your request was recoarded"
-                        });
+                waiterManager.Message = $"You alread have a Rquest for this time and Day";
+                ControllerDirect = RedirectToAction("WaitersPage", "Home", waiterManager);
             }
-            else
-            {
-                foreach (var item in getWaiterTime)
-                {
-                    if (item.Day == waiterManager.Day && item.Time == waiterManager.Time)
-                    {
-                        ControllerDirect = RedirectToAction("WaitersPage", "Home",
-                        new WaiterManager()
-                        {
-                            EmployId = item.EmployId,
-                            FullNames = item.FullNames,
-                            Status = item.Status,
-                            Message = $"Your request for this {item.Day} @ {item.Time} the status is {item.Status}",
-                        });
-                    }
-                    else
-                    {
-                        login.InsertTimeSlots(waiterManager);
-                        ControllerDirect = RedirectToAction("WaitersPage", "Home",
-                                new WaiterManager()
-                                {
-                                    EmployId = item.EmployId,
-                                    FullNames = item.FullNames,
-                                    Status = item.Status,
-                                    Message = $"Your request was recoarded",
-                                });
-                    }
-                }
+            else {
+                requestShift.InsertTimeSlots(waiterManager);
+                waiterManager.Message = "Your request was recoarded";
+                ControllerDirect = RedirectToAction("WaitersPage", "Home", waiterManager);
             }
             return ControllerDirect;
         }

@@ -34,6 +34,7 @@ namespace Decision_Pizza_Staff_App
             services.AddSingleton<IWaiterRepository, WaiterRepository>();
             services.AddSingleton<IWaiterLogic, WaiterLogic>();
             services.AddSingleton<IGetSlotsStatus, GetSlotsStatus>();
+            services.AddSingleton<IRequestShift, RequestShift>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
