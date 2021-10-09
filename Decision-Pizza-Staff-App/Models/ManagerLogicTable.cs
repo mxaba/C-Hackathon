@@ -61,27 +61,58 @@ namespace Decision_Pizza_Staff_App.Models
                 WaiterManager item = aprovedSlotsFridays[i];
                 if (item.Time == "09:00 - 12:00")
                 {
-                    FridayModel.Add(new ModelTable
+                    if (FridayModel.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        FridayModel.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+
+                        waiterManager.ColourChangeFriShift1 = "table-danger text-secondary";
+
+                    } 
+                    if (FridayModel.Count == 3)
+                    {
+                        waiterManager.ColourChangeFriShift1 = "table-success text-secondary";
+                    }
+                    
                 }
                 else if (item.Time == "12:00 - 16:00")
                 {
-                    FridaysModel2nd.Add(new ModelTable
+                    if (FridaysModel2nd.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        FridaysModel2nd.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+                        waiterManager.ColourChangeFriShift2 = "table-danger text-secondary";
+                    } 
+                    if (FridaysModel2nd.Count == 3)
+                    {
+                        waiterManager.ColourChangeFriShift2 = "table-success text-secondary";
+
+                    }
+                    
                 }
                 else if (item.Time == "16:00 - 21:00")
                 {
-                    FridayModel3rd.Add(new ModelTable
+                    if (FridayModel3rd.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        FridayModel3rd.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+                        waiterManager.ColourChangeFriShift3 = "table-danger text-secondary";
+                    } 
+                    if (FridayModel3rd.Count == 3)
+                    {
+                        waiterManager.ColourChangeFriShift3 = "table-success text-secondary";
+
+                    }
+                    
                 }
             }
             waiterManager.FridayModel = FridayModel;
@@ -100,27 +131,54 @@ namespace Decision_Pizza_Staff_App.Models
                 WaiterManager item = aprovedSlotsWednesdays[i];
                 if (item.Time == "09:00 - 12:00")
                 {
-                    WednesdayModel.Add(new ModelTable
+                    if (WednesdayModel.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        WednesdayModel.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+                        waiterManager.ColourChangeWednShift1 = "table-danger text-secondary";
+                    } 
+                    if (WednesdayModel.Count == 3)
+                    {
+                        waiterManager.ColourChangeWednShift1 = "table-success text-secondary";
+                    }
+                    
                 }
                 else if (item.Time == "12:00 - 16:00")
                 {
-                    WednesdayModel2nd.Add(new ModelTable
+                    if (WednesdayModel2nd.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        WednesdayModel2nd.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+                        waiterManager.ColourChangeWednShift2 = "table-danger text-secondary";
+                    } 
+                    if (WednesdayModel2nd.Count == 3)
+                    {
+                        waiterManager.ColourChangeWednShift2 = "table-success text-secondary";
+                    }
+                    
                 }
                 else if (item.Time == "16:00 - 21:00")
                 {
-                    WednesdayModel3rd.Add(new ModelTable
+                    if (WednesdayModel3rd.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        WednesdayModel3rd.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+                        waiterManager.ColourChangeWednShift3 = "table-danger text-secondary";
+                    } 
+                    if (WednesdayModel3rd.Count == 3)
+                    {
+                        waiterManager.ColourChangeWednShift3 = "table-success text-secondary";
+                    }
+                    
                 }
             }
             waiterManager.WednesdayModel = WednesdayModel;
@@ -139,27 +197,54 @@ namespace Decision_Pizza_Staff_App.Models
                 WaiterManager item = aprovedSlotsThursday[i];
                 if (item.Time == "09:00 - 12:00")
                 {
-                    ThursdayModel.Add(new ModelTable
+                    if (ThursdayModel.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        ThursdayModel.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+                        waiterManager.ColourChangeThurShift1 = "table-danger text-secondary";
+                    }
+                    if (ThursdayModel.Count == 3)
+                    {
+                        waiterManager.ColourChangeThurShift1 = "table-success text-secondary";
+                    }
+                    
                 }
-                if (item.Time == "12:00 - 16:00")
+                else if (item.Time == "12:00 - 16:00")
                 {
-                    ThursdayModel2nd.Add(new ModelTable
+                    if (ThursdayModel2nd.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        ThursdayModel2nd.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+                        waiterManager.ColourChangeThurShift2 = "table-danger text-secondary";
+                    } 
+                    if (ThursdayModel2nd.Count == 3)
+                    {
+                        waiterManager.ColourChangeThurShift2 = "table-success text-secondary";
+                    }
+                    
                 }
-                if (item.Time == "16:00 - 21:00")
+                else if (item.Time == "16:00 - 21:00")
                 {
-                    ThursdayModel3rd.Add(new ModelTable
+                    if (ThursdayModel3rd.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        ThursdayModel3rd.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+                        waiterManager.ColourChangeThurShift3 = "table-danger text-secondary";
+                    } 
+                    if (ThursdayModel3rd.Count == 3)
+                    {
+                        waiterManager.ColourChangeThurShift3 = "table-success text-secondary";
+                    }
+                    
                 }
             }
             waiterManager.ThursdayModel = ThursdayModel;
@@ -178,32 +263,59 @@ namespace Decision_Pizza_Staff_App.Models
                 WaiterManager item = aprovedSlotsTuesdays[i];
                 if (item.Time == "09:00 - 12:00")
                 {
-                    TuesdayModel.Add(new ModelTable
+                    if (TuesdayModel.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        TuesdayModel.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+                        waiterManager.ColourChangeTuesShift1 = "table-danger text-secondary";
+                    } 
+                    if (TuesdayModel.Count == 3)
+                    {
+                        waiterManager.ColourChangeTuesShift1 = "table-success text-secondary";
+                    }
+                    
                 }
-                if (item.Time == "12:00 - 16:00")
+                else if (item.Time == "12:00 - 16:00")
                 {
-                    TuesdayModel2nd.Add(new ModelTable
+                    if (TuesdayModel2nd.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        TuesdayModel2nd.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+                        waiterManager.ColourChangeTuesShift2 = "table-danger text-secondary";
+                    } 
+                    if (TuesdayModel2nd.Count == 3)
+                    {
+                        waiterManager.ColourChangeTuesShift2 = "table-success text-secondary";
+                    }
+                    
                 }
-                if (item.Time == "16:00 - 21:00")
+                else if (item.Time == "16:00 - 21:00")
                 {
-                    TuesdayModel3rd.Add(new ModelTable
+                    if (TuesdayModel3rd.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        TuesdayModel3rd.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+                        waiterManager.ColourChangeTuesShift3 = "table-danger text-secondary";
+                    } 
+                    if (TuesdayModel3rd.Count == 3)
+                    {
+                        waiterManager.ColourChangeTuesShift3 = "table-success text-secondary";
+                    }
+                    
                 }
             }
             waiterManager.TuesdayModel = TuesdayModel;
             waiterManager.TuesdayModel2nd = TuesdayModel2nd;
-            waiterManager.TuesdayModel3rd = TuesdayModel3rd;
+            waiterManager.TuesdayModel3rd = TuesdayModel3rd; 
         }
 
         public void MondaySlots(WaiterManager waiterManager)
@@ -216,32 +328,60 @@ namespace Decision_Pizza_Staff_App.Models
             {
                 if (item.Time == "09:00 - 12:00")
                 {
-                    approvedFirstShiftModayModel.Add(new ModelTable
+                    if (approvedFirstShiftModayModel.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        approvedFirstShiftModayModel.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+                        waiterManager.ColourChangeMonShift1 = "table-danger text-secondary";
+                    } 
+                    if (approvedFirstShiftModayModel.Count == 3)
+                    {
+                        waiterManager.ColourChangeMonShift1 = "table-success text-secondary";
+                    }
+                    
                 }
-                if (item.Time == "12:00 - 16:00")
+                else if (item.Time == "12:00 - 16:00")
                 {
-                    approvedSecondShiftModayModel.Add(new ModelTable
+                    if (approvedSecondShiftModayModel.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        approvedSecondShiftModayModel.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+                        waiterManager.ColourChangeMonShift2 = "table-danger text-secondary";
+                    } 
+                    if (approvedSecondShiftModayModel.Count == 3)
+                    {
+                        waiterManager.ColourChangeMonShift2 = "table-success text-secondary";
+                    }
+                    
                 }
-                if (item.Time == "16:00 - 21:00")
+                else if (item.Time == "16:00 - 21:00")
                 {
-                    approvedThirdtShiftModayModel.Add(new ModelTable
+                    if (approvedThirdtShiftModayModel.Count <= 2)
                     {
-                        EmployId = item.EmployId,
-                        FullNames = item.FullNames
-                    });
+                        approvedThirdtShiftModayModel.Add(new ModelTable
+                        {
+                            EmployId = item.EmployId,
+                            FullNames = item.FullNames
+                        });
+                        waiterManager.ColourChangeMonShift3 = "table-danger text-secondary";
+                    } 
+                    if (approvedThirdtShiftModayModel.Count == 3)
+                    {
+                        waiterManager.ColourChangeMonShift3 = "table-success text-secondary";
+
+                    }
+                    
                 }
             }
             waiterManager.ApprovedFirstShiftMondayModel = approvedFirstShiftModayModel;
             waiterManager.approvedSecondShiftMondayModel = approvedSecondShiftModayModel;
-            waiterManager.approvedThirdtShiftMondayModel = approvedThirdtShiftModayModel;
+            waiterManager.approvedThirdtShiftMondayModel = approvedThirdtShiftModayModel; 
         }
     }
 }
