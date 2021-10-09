@@ -3,6 +3,8 @@
 @{
     ViewData["Title"] = "Waiters Page";
 }
+@if (!String.IsNullOrEmpty(Model.FullNames))
+{
 <h1 class="display-4"> Welcome @Html.DisplayFor(model => model.FullNames)</h1>
 <br>
 <div class="text-center">
@@ -188,6 +190,26 @@
                     <tr class="table-default">
                         <td colspan="2" class="border-right border-top border-bottom border-primary p-2">@timeSlot.Day, @timeSlot.Time</td>
                         <td class="border-bottom border-top border-primary p-2" >@timeSlot.Status</td>
+                            @if (timeSlot.Status == "Pending")
+                            {
+                                <td class="border-left border-bottom border-top border-primary p-2" >
+                                    <form asp-controller="MangerWaiterDeletes" asp-action="RemovePending" method="POST">
+                                        <input type="text" asp-for="FullNames" id="" style="display:none;" class="form-control" >
+                                        <input type="text" asp-for="EmployId" id="" style="display:none;" class="form-control" >
+                                        <input type="text" asp-for="TimeSlotsId" id="" style="display:none;" class="form-control" value="@timeSlot.TimeSlotsId" >
+                                        <button type="submit" class="btn btn-outline-danger btn-sm" >Remove</button>
+                                    </form>
+                                </td>
+
+                            } else if (timeSlot.Status == "Approved") {
+                                <td class="border-left border-bottom border-top border-primary p-2" >
+                                    <p>You're working</p>
+                                </td>
+                            } else {
+                                <td class="border-left border-bottom border-top border-primary p-2" >
+                                    <p>You ain't working</p>
+                                </td>
+                            }
                     </tr>
                 }   
             </table>
@@ -195,3 +217,6 @@
     </div>
 </div>
 <br>
+} else {
+        <h3 class="center" style="margin-top: 50%;">You don't have access to this page❌</h3>
+}

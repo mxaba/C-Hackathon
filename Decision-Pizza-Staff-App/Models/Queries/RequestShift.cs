@@ -19,9 +19,20 @@ namespace Decision_Pizza_Staff_App.Models.Queries
         public IEnumerable<WaiterManager> RequestShiftSpecific(WaiterManager waiterManager)
         {
             using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
-            //return (IEnumerable<WaiterManager>)
             var results = connection.Query<WaiterManager>("SELECT * FROM TimeSlots WHERE (EmployId=@EmployId AND Day=@Day AND Time=@Time);", waiterManager);
             return results;
+        }
+
+        public void RemovePendingRequest(WaiterManager waiterManager)
+        {
+            using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
+            connection.Query<WaiterManager>("DELETE FROM TimeSlots WHERE (TimeSlotsId=@TimeSlotsId);", waiterManager);
+        }
+
+        public void RemoveRequests(WaiterManager waiterManager)
+        {
+            using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
+            connection.Query<WaiterManager>("DELETE FROM TimeSlots;", waiterManager);
         }
 
         public IEnumerable<WaiterManager> InsertTimeSlots(WaiterManager waiter)

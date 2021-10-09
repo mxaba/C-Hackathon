@@ -129,6 +129,12 @@
                  
         </tr>
     </table>
+
+    <form asp-controller="MangerWaiterDeletes" asp-action="DeleteTimeSlots" method="POST">
+      <input type="text" asp-for="FullNames" id="" style="display:none;" class="form-control" >
+      <button type="submit" class="btn btn-outline-danger btn-block btn-sm" >Clear Weekly Schedule</button>
+    </form>
+
 </div>
     <br>
 
@@ -140,7 +146,8 @@
           <th>Name</th>
           <th>Day</th>
           <th>Time Slot</th>
-          <th>Options</th>
+          <th>Reject</th>
+          <th>Aprove</th>
         </tr>
         @foreach (var timeSlot in Model.TimeslotsResults){
           <tr>
@@ -152,13 +159,15 @@
             <form asp-controller="Login" asp-action="RejectRequestShift" method="POST">
               <input type="text" asp-for="FullNames" id="" style="display:none;" class="form-control" >
               <input type="text" asp-for="TimeSlotsId" id="" style="display:none;" class="form-control" value="@timeSlot.TimeSlotsId" >
-              <button type="submit" class="btn btn-danger" >Reject</button>
+              <button type="submit" class="btn btn-outline-danger btn-sm" >Reject</button>
             </form>
+          </td>
 
+          <td>
             <form asp-controller="Login" asp-action="ApproveRequestShift" method="POST">
               <input type="text" asp-for="FullNames" id="" style="display:none;" class="form-control" >
               <input type="text" asp-for="TimeSlotsId" id="" style="display:none;" class="form-control" value="@timeSlot.TimeSlotsId" >
-              <button type="submit" class="btn btn-success" >Approve</button>
+              <button type="submit" class="btn btn-outline-success btn-sm" >Approve</button>
             </form>
 
             </td>

@@ -44,6 +44,14 @@ namespace Decision_Pizza_Staff_App.Controllers
         }
 
         [HttpPost]
+        private IActionResult DeleteTimeSlots(WaiterManager waiterManager)
+        {
+            requestShift.RemoveRequests(waiterManager);
+            var ControllerDirect = RedirectToAction("Manager", "Home", waiterManager);
+            return ControllerDirect;
+        }
+
+        [HttpPost]
         public IActionResult ApproveRequestShift(WaiterManager waiterManager)
         {
             Console.WriteLine(waiterManager.TimeSlotsId);
@@ -74,6 +82,8 @@ namespace Decision_Pizza_Staff_App.Controllers
             }
             return ControllerDirect;
         }
+
+        
 
         public IActionResult RedirectLoctic(string EmployId)
         {
