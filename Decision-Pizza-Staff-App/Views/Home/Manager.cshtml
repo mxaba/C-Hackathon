@@ -148,13 +148,18 @@
           <td>@timeSlot.Day</td>
           <td>@timeSlot.Time</td>
           <td>
-            @* <form asp-controller="Login" asp-action="RejectRequestShift" method="post"> *@
-              <a asp-controller="Login" asp-route-Id="@timeSlot.TimeSlotsId" asp-action="RejectRequestShift" class="btn btn-outline-danger" >Reject</a>
-            @* </form> *@
 
-            @* <form action="" method="post"> *@
-              <a asp-controller="Login" asp-route-Id="@timeSlot.TimeSlotsId" asp-action="ApproveRequestShift">Approve</a>
-            @* </form> *@
+            <form asp-controller="Login" asp-action="RejectRequestShift" method="POST">
+              <input type="text" asp-for="FullNames" id="" style="display:none;" class="form-control" >
+              <input type="text" asp-for="TimeSlotsId" id="" style="display:none;" class="form-control" value="@timeSlot.TimeSlotsId" >
+              <button type="submit" class="btn btn-danger" >Reject</button>
+            </form>
+
+            <form asp-controller="Login" asp-action="ApproveRequestShift" method="POST">
+              <input type="text" asp-for="FullNames" id="" style="display:none;" class="form-control" >
+              <input type="text" asp-for="TimeSlotsId" id="" style="display:none;" class="form-control" value="@timeSlot.TimeSlotsId" >
+              <button type="submit" class="btn btn-success" >Approve</button>
+            </form>
 
             </td>
           </tr>

@@ -62,11 +62,18 @@ namespace Decision_Pizza_Staff_App.Models
             return results;
         }
 
-        public void ApproveRequestShift(int id)
+        public void ApprovetShift(int id)
         {
             using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
             //return (IEnumerable<WaiterManager>)
             connection.Query<WaiterManager>("UPDATE TimeSlots SET Status='Approved' WHERE TimeSlotsId=@TimeSlotsId;", new {TimeSlotsId=id});
+        }
+
+        public void RejecttShift(int id)
+        {
+            using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
+            //return (IEnumerable<WaiterManager>)
+            connection.Query<WaiterManager>("UPDATE TimeSlots SET Status='Rejected' WHERE TimeSlotsId=@TimeSlotsId;", new {TimeSlotsId=id});
         }
 
     }

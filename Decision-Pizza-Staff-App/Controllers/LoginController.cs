@@ -36,27 +36,31 @@ namespace Decision_Pizza_Staff_App.Controllers
         }
 
         [HttpPost]
-        public IActionResult RejectRequestShift(int? EmployId)
+        public IActionResult RejectRequestShift(WaiterManager waiterManager)
         {
-            return View();
+            login.RejecttShift(waiterManager.TimeSlotsId);
+            var ControllerDirect = RedirectToAction("Manager", "Home", waiterManager);
+            return ControllerDirect;
         }
 
-        // [HttpPost]
-        public IActionResult ApproveRequestShift(int id, WaiterManager waiterManager)
+        [HttpPost]
+        public IActionResult ApproveRequestShift(WaiterManager waiterManager)
         {
-            login.ApproveRequestShift(id);
-            var ControllerDirect = RedirectToAction("Manager", "Home",
-                        new WaiterManager()
-                        {
-                            FullNames = waiterManager.FullNames,
-                        });
+            Console.WriteLine(waiterManager.TimeSlotsId);
+            login.ApprovetShift(waiterManager.TimeSlotsId);
+            var ControllerDirect = RedirectToAction("Manager", "Home", waiterManager);
             return ControllerDirect;
         }
 
         private IActionResult RequestShiftLogic(WaiterManager waiterManager)
         {
             var getWaiterTime = requestShift.RequestShiftSpecific(waiterManager);
-            var ControllerDirect = RedirectToAction("WaitersPage", "Home");
+            var ControllerDirect = RedirectToAction("WaitersPage", "Home", waiterManager);
+
+            if(string.IsNullOrEmpty(waiterManager.Day) || string.IsNullOrEmpty(waiterManager.Time)){
+                waiterManager.Message = "Please Select the day and time you like to request";
+                return ControllerDirect;
+            }
 
             if (getWaiterTime.Count() == 1)
             {
@@ -73,43 +77,29 @@ namespace Decision_Pizza_Staff_App.Controllers
 
         public IActionResult RedirectLoctic(string EmployId)
         {
-            // var getWaiterTime = login.GetTimeSlots(new WaiterManager(){EmployId = EmployId}).ToList();
             var results = login.GetWaiterManager(EmployId);
+            var waiterManager = new WaiterManager();
 
             var ControllerDirect = RedirectToAction("Index", "Home");
             if (results.Count() == 0)
             {
-                new WaiterManager(){Message = "I don't have an employee number"};
-                ControllerDirect = RedirectToAction("Index", "Home");
+                waiterManager.Message = "Entered employee number not found❌";
+                ControllerDirect = RedirectToAction("Index", "Home", waiterManager);
             }
             else
             {
                 foreach (var wm in results)
                 {
+                    waiterManager.EmployId = EmployId;
+                    waiterManager.FullNames = wm.FullNames;
+                    waiterManager.Status = wm.Status;
                     if (wm.Status == "manager")
                     {
-                        // foreach (var item in collection)
-                        // {
-                            
-                        // }
-                        TempData["manager"] = EmployId;
-                        ControllerDirect = RedirectToAction("Manager", "Home",new WaiterManager()
-                        {
-                            EmployId = EmployId,
-                            FullNames = wm.FullNames,
-                            Status = wm.Status
-                        });
+                        ControllerDirect = RedirectToAction("Manager", "Home", waiterManager);
                     }
                     if (wm.Status == "waiter")
                     {
-
-                        ControllerDirect = RedirectToAction("WaitersPage", "Home", new WaiterManager()
-                        {
-                            EmployId = EmployId,
-                            FullNames = wm.FullNames,
-                            Status = wm.Status,
-                            Message = ""
-                        });
+                        ControllerDirect = RedirectToAction("WaitersPage", "Home", waiterManager);
                     }
                 }
             }

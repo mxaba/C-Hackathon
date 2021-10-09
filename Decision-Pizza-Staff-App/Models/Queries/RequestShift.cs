@@ -32,5 +32,6 @@ namespace Decision_Pizza_Staff_App.Models.Queries
                 "VALUES (@EmployId, @FullNames, @Status, @Time, @Day);", waiter);
             return results;
         }
+
     }
 }
