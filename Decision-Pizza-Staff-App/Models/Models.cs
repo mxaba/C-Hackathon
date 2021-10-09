@@ -11,12 +11,7 @@ namespace Decision_Pizza_Staff_App.Models
         public string Status { get; set; }
         public int TimeSlotsId { get; set; }
         public List<TimeslotsResults> TimeslotsResults { get; set; }
-        public List<WaiterManager> RequestShiftApproved { get; set; }
-        public List<WaiterManager> Monday { get; set; }
-        public List<WaiterManager> Tuesday { get; set; }
-        public List<WaiterManager> Wednesday { get; set; }
-        public List<WaiterManager> Thursday { get; set; }
-        public List<WaiterManager> Friday { get; set; }
+        public List<ScheduledShift> ScheduledShift { get; set; }
         public List<ModelTable> ApprovedFirstShiftMondayModel { get; set; }
         public List<ModelTable> approvedSecondShiftMondayModel { get; set; }
         public List<ModelTable> approvedThirdtShiftMondayModel { get; set; }

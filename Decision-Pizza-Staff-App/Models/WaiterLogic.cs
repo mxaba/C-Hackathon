@@ -76,5 +76,14 @@ namespace Decision_Pizza_Staff_App.Models
             connection.Query<WaiterManager>("UPDATE TimeSlots SET Status='Rejected' WHERE TimeSlotsId=@TimeSlotsId;", new {TimeSlotsId=id});
         }
 
+        public IEnumerable<WaiterManager> ApprovedtrScheduleShift(WaiterManager waiterManager)
+        {
+            using var connection = new SqliteConnection(databaseConfig.DatabaseConnectionConfiguration);
+            //return (IEnumerable<WaiterManager>)
+            return connection.Query<WaiterManager>("SELECT * FROM TimeSlots WHERE (Status='Approved' AND EmployId=@EmployId)", waiterManager);
+        }
+
+        
+
     }
 }

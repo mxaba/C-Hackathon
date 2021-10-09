@@ -11,5 +11,7 @@ namespace Decision_Pizza_Staff_App.Models
         IEnumerable<WaiterManager> GetTimeSlots();
         void ApprovetShift(int id);
         void RejecttShift(int id);
+        IEnumerable<WaiterManager> ApprovedtrScheduleShift(WaiterManager waiter);
+        
     }
 }

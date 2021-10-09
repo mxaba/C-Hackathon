@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Decision_Pizza_Staff_App.Models;
+using Decision_Pizza_Staff_App.Models.ModelShifts;
 
 namespace Decision_Pizza_Staff_App.Controllers
 {
@@ -34,7 +35,10 @@ namespace Decision_Pizza_Staff_App.Controllers
         public IActionResult WaitersPage(WaiterManager waiterManager)
         {
             var getWaiterTime = login.GetTimeSlotsById(waiterManager).ToList();
+            var approvedtrScheduleShift = login.ApprovedtrScheduleShift(waiterManager).ToList();
             var slotsAdd = new List<TimeslotsResults>();
+            var yourScheduledShift = new List<ScheduledShift>();
+            
             foreach (var item in getWaiterTime)
             {
                 slotsAdd.Add(new TimeslotsResults {    
@@ -47,7 +51,20 @@ namespace Decision_Pizza_Staff_App.Controllers
                 });
             }
 
+            foreach (var item in approvedtrScheduleShift)
+            {
+                yourScheduledShift.Add(new ScheduledShift {
+                    EmployId=item.EmployId,
+                    FullNames=item.FullNames,
+                    Status=item.Status,
+                    Time=item.Time,
+                    Day=item.Day
+                });
+            }
+
+            managerLogicTable.ManagerLogic(waiterManager);
             waiterManager.TimeslotsResults = slotsAdd;
+            waiterManager.ScheduledShift = yourScheduledShift;
 
             return View(waiterManager);
         }
