@@ -72,7 +72,7 @@ namespace Decision_Pizza_Staff_App.Controllers
 
             if (getWaiterTime.Count() == 1)
             {
-                waiterManager.Message = $"You alread have a Rquest for this time and Day";
+                waiterManager.Message = $"You alread have a Request for this time and Day";
                 ControllerDirect = RedirectToAction("WaitersPage", "Home", waiterManager);
             }
             else {

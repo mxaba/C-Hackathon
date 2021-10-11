@@ -26,10 +26,10 @@ namespace Decision_Pizza_Staff_App.Database
             var tableName = table.FirstOrDefault();
             var tableTime = connection.Query<string>("SELECT name FROM sqlite_master WHERE type='table' AND name = 'TimeSlots';");
             var tableNameTime = tableTime.FirstOrDefault();
-            // if ((!string.IsNullOrEmpty(tableName) && tableName == "WaiterManager") || (!string.IsNullOrEmpty(tableNameTime) && tableNameTime == "TimeSlots"))
-            //     connection.Execute("DROP TABLE WaiterManager");
-            //     connection.Execute("DROP TABLE TimeSlots");
-                // return;
+            if ((!string.IsNullOrEmpty(tableName) && tableName == "WaiterManager") || (!string.IsNullOrEmpty(tableNameTime) && tableNameTime == "TimeSlots"))
+                // connection.Execute("DROP TABLE WaiterManager");
+                // connection.Execute("DROP TABLE TimeSlots");
+                return;
             
 
             connection.Execute("Create Table WaiterManager (" +
