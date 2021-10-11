@@ -64,7 +64,7 @@ namespace Decision_Pizza_Staff_App
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            serviceProvider.GetService<IDatabaseBootstrap>().Setup();
+            // serviceProvider.GetService<IDatabaseBootstrap>().Setup();
             
         }
     }
