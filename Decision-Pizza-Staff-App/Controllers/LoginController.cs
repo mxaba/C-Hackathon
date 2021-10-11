@@ -77,7 +77,7 @@ namespace Decision_Pizza_Staff_App.Controllers
             }
             else {
                 requestShift.InsertTimeSlots(waiterManager);
-                waiterManager.Message = "Your request was recoarded";
+                waiterManager.Message = "Your request was recorded";
                 ControllerDirect = RedirectToAction("WaitersPage", "Home", waiterManager);
             }
             return ControllerDirect;
