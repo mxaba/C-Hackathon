@@ -1,6 +1,6 @@
 ## CSharp-Hackathon
 
-![Try it here!](https://decisionpizza.herokuapp.com/)
+[Try it here!](https://decisionpizza.herokuapp.com/)
 
 ##### 1. Open the cmd/terminal and perform the following sequence of steps in order to be able to run the application on your local machine.
 
@@ -48,5 +48,5 @@ Main changes that you need to make is to enrol your manager and waiters into the
 
 
 #### Links To Our Documentations
-    ![Decision Pizza Staff App Link](https://docs.google.com/document/d/1wAD1bC72GOYNJnHuKzqg9wTpuQjkuEKS1Wt8i7Ya3Us/edit?usp=sharing)
+    [Decision Pizza Staff App Link](https://docs.google.com/document/d/1wAD1bC72GOYNJnHuKzqg9wTpuQjkuEKS1Wt8i7Ya3Us/edit?usp=sharing)
 
