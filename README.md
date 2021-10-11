@@ -1,5 +1,7 @@
 ## CSharp-Hackathon
 
+![Try it here!](https://decisionpizza.herokuapp.com/)
+
 ##### 1. Open the cmd/terminal and perform the following sequence of steps in order to be able to run the application on your local machine.
 
 ##### 2. Clone the repo using the command git clone “repo link“.
@@ -43,4 +45,8 @@ Should you encounter any issues with whilst deploying or testing the system cont
 ### Changes you need to make to the application:
 
 Main changes that you need to make is to enrol your manager and waiters into the database, so they may login to their specific portals.
+
+
+#### Links To Our Documentations
+    ![Decision Pizza Staff App Link](https://docs.google.com/document/d/1wAD1bC72GOYNJnHuKzqg9wTpuQjkuEKS1Wt8i7Ya3Us/edit?usp=sharing)
 
